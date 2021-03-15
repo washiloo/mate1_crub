@@ -1,0 +1,118 @@
+%no borrar PREAMBULO
+\documentclass[12pt]{article}
+
+\usepackage[top=3.5 cm, bottom=2.5  cm, left=3 cm, right=3 cm]{geometry}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\usepackage[hidelinks]{hyperref} %esta opción saca las cajas de colores de los hiperlinks
+
+\fancyfoot[C]{\thepage }  %numera las páginas
+
+\usepackage[utf8]{inputenc}
+
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{xcolor}
+\usepackage{fancyvrb}
+\newcommand\verbbf[1]{\textcolor[rgb]{0,0,1}}%comando para colorear el texto en verbatim
+
+%\linespread{1} %por si queremos achicar el espacio entre lineas
+
+\usepackage{tabularx,booktabs}
+\usepackage{graphicx}
+\usepackage{float} %para que las figuras puedan ponerse en cualquier lado
+
+\usepackage{subcaption}
+\usepackage{layout}
+\usepackage{multicol}  %para escribir en columnnas 
+\usepackage{float}
+\usepackage{textcomp}
+\usepackage{natbib}
+\usepackage{tikz}
+\usepackage{multirow} %para cambiar el alto de una fila en una tabla
+\tikzset{
+  connect/.style = { dashed, gray }
+}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.8}
+\usepackage[english ,spanish]{babel}
+\usepackage{latexsym}
+\usepackage{verbatim}
+
+%\usepackage{alltt}
+\usepackage{indentfirst}
+
+\usepackage{fancybox, calc} 
+
+\usepackage[flushmargin]{footmisc} %para alinear las notas de página
+
+\usepackage{url}
+\usepackage{advdate}
+\usepackage{wrapfig}
+\usepackage{amsthm}
+\usepackage[inline]{enumitem} %para hacer listas en una linea, los mismos comandos con *
+\newtheorem*{myteo}{Teorema} % la * es para no numerarlos
+\newtheorem*{myexample}{Ejemplo}
+\newtheorem*{myprop}{Proposición}
+\newtheorem*{mylem}{Lema}
+\theoremstyle{definition}
+\newtheorem*{mydef}{Definición}
+\newtheorem{ejer}{Ejercicio}
+\newtheorem*{mydefs}{Definiciones}
+%\theoremstyle{remark}
+\newtheorem*{myobs}{Observación}
+\newtheorem*{remark}{Importante}
+
+\renewcommand{\baselinestretch}{1}  %interlineado
+
+\addto\captionsspanish{%
+  \renewcommand{\figurename}{Figura}%
+}
+
+\newcommand\myText[1]{\text{\scriptsize\tabular[t]{@{}l@{}}#1\endtabular}}
+\addto\captionsspanish{%
+  \renewcommand{\tablename}{Tabla}%
+}
+
+\def \ds {\displaystyle} %define un comando abreviado  
+\def\com{“R”}
+
+\usepackage{hyperref}%para referencias de internet con link!
+\newcommand*{\fullref}[1]{\hyperref[{#1}]{ \nameref*{#1}}}
+%comando \fullref para que ademas del número de capitulo, sección etc. escriba el título del capitulo, sección o lo que sea a lo que estamos haciendo referencia
+
+\newcommand\comentario[1]{\textcolor{red}{#1}}%comentarios en el pdf
+
+\interfootnotelinepenalty=10000 %previene que se pasen a otra página las notas de pie
+\raggedbottom 
+\addtolength{\topskip}{0pt plus 10pt}
+\addtolength{\footnotesep}{0.1mm}
+
+\VerbatimFootnotes%para poder usar Verbatim en las notas de pie
+
+\begin{document}
+
+\begin{enumerate}
+
+\item  
+%q
+Hallar el valor de $a \in \mathbb{R}$ de tal manera que la pendiente de la recta tangente a la curva que representa la función $f(x)= a.e^{1-x}-2x$   en $x = 1$ valga $4$. Hallar la ecuación de la tangente.
+
+\item  
+%q
+
+Dada $f(x)= x^4+6x-3$, hallar $k \in \mathbb{R}$ de manera que la recta tangente a la curva en el punto de coordenadas $(k,-8)$ sea igual a $2$. Hallar la ecuación de la tangente.
+
+\item  
+%q
+
+Hallar  $b \in \mathbb{R}$ de manera que la pendiente de la recta tangente a $f(x)= \frac{b-x}{3x+2}$, en el punto de coordenadas $(0,f(0))$ sea igual a $-\frac{1}{5}$. Hallar la ecuación de la tangente.
+
+\item  
+%q
+Dada $f(x) = (6-x).e^\frac{x-4}{3}-1$, encontrar el punto del dominio de la función donde la recta tangente tenga pendiente máxima.
+
+%q
+\end{enumerate}
+
+\end{document}

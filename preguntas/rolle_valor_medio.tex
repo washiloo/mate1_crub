@@ -1,0 +1,127 @@
+%no borrar PREAMBULO
+\documentclass[12pt]{article}
+
+\usepackage[top=3.5 cm, bottom=2.5  cm, left=3 cm, right=3 cm]{geometry}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\usepackage[hidelinks]{hyperref} %esta opción saca las cajas de colores de los hiperlinks
+
+\fancyfoot[C]{\thepage }  %numera las páginas
+
+\usepackage[utf8]{inputenc}
+
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{xcolor}
+\usepackage{fancyvrb}
+\newcommand\verbbf[1]{\textcolor[rgb]{0,0,1}}%comando para colorear el texto en verbatim
+
+%\linespread{1} %por si queremos achicar el espacio entre lineas
+
+\usepackage{tabularx,booktabs}
+\usepackage{graphicx}
+\usepackage{float} %para que las figuras puedan ponerse en cualquier lado
+
+\usepackage{subcaption}
+\usepackage{layout}
+\usepackage{multicol}  %para escribir en columnnas 
+\usepackage{float}
+\usepackage{textcomp}
+\usepackage{natbib}
+\usepackage{tikz}
+\usepackage{multirow} %para cambiar el alto de una fila en una tabla
+\tikzset{
+  connect/.style = { dashed, gray }
+}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.8}
+\usepackage[english ,spanish]{babel}
+\usepackage{latexsym}
+\usepackage{verbatim}
+
+%\usepackage{alltt}
+\usepackage{indentfirst}
+
+\usepackage{fancybox, calc} 
+
+\usepackage[flushmargin]{footmisc} %para alinear las notas de página
+
+\usepackage{url}
+\usepackage{advdate}
+\usepackage{wrapfig}
+\usepackage{amsthm}
+\usepackage[inline]{enumitem} %para hacer listas en una linea, los mismos comandos con *
+\newtheorem*{myteo}{Teorema} % la * es para no numerarlos
+\newtheorem*{myexample}{Ejemplo}
+\newtheorem*{myprop}{Proposición}
+\newtheorem*{mylem}{Lema}
+\theoremstyle{definition}
+\newtheorem*{mydef}{Definición}
+\newtheorem{ejer}{Ejercicio}
+\newtheorem*{mydefs}{Definiciones}
+%\theoremstyle{remark}
+\newtheorem*{myobs}{Observación}
+\newtheorem*{remark}{Importante}
+
+\renewcommand{\baselinestretch}{1}  %interlineado
+
+\addto\captionsspanish{%
+  \renewcommand{\figurename}{Figura}%
+}
+
+\newcommand\myText[1]{\text{\scriptsize\tabular[t]{@{}l@{}}#1\endtabular}}
+\addto\captionsspanish{%
+  \renewcommand{\tablename}{Tabla}%
+}
+
+\def \ds {\displaystyle} %define un comando abreviado  
+\def\com{“R”}
+
+\usepackage{hyperref}%para referencias de internet con link!
+\newcommand*{\fullref}[1]{\hyperref[{#1}]{ \nameref*{#1}}}
+%comando \fullref para que ademas del número de capitulo, sección etc. escriba el título del capitulo, sección o lo que sea a lo que estamos haciendo referencia
+
+\newcommand\comentario[1]{\textcolor{red}{#1}}%comentarios en el pdf
+
+\interfootnotelinepenalty=10000 %previene que se pasen a otra página las notas de pie
+\raggedbottom 
+\addtolength{\topskip}{0pt plus 10pt}
+\addtolength{\footnotesep}{0.1mm}
+
+\VerbatimFootnotes%para poder usar Verbatim en las notas de pie
+
+\begin{document}
+
+\begin{enumerate}
+
+\item  
+%q
+Demostrar que las funciones $f(x) = 2x^3 + x^2$ y $g(x) = x^2+6x -1$ se cortan en un solo punto en el intervalo $[0,1]$. Explicar. (\textit{Nota}: No hay que buscar el punto de intersección, solo justificar su existencia y que no existen otros).
+\item  
+%q
+Demostrar que la función $f(x) = x^3 + 6x^2+15x-25$ corta al eje $x$ en un solo punto. Explicar. (\textit{Nota}: No hay que buscar el punto de intersección, solo justificar su existencia y que no existen otros).
+\item  
+%q
+¿Cuántas raíces tiene la ecuación $x^3 + 6x^2 + 15x - 25 = 0$?.  (\textit{Nota}: No hay que buscar las raíces, solo justificar por qué son esa cantidad y no otra).
+
+\item  
+%q
+Dada la función:
+\begin{equation*}
+	f(x) = 
+	\begin{cases} 
+		x^2+6x+a  & \text{si  } x <1 \\
+		bx+2  & \text{si  } x \geq 1
+	\end{cases}
+\end{equation*}
+Se pide:
+\begin{enumerate}
+\item Hallar $a$ y $b$ para que $f(x)$ cumpla las condiciones del Teorema del Valor Medio en el intervalo $[0,2]$ .
+\item Encontrar el punto $c$ que satisface este Teorema para ese intervalo.
+\item Graficar.
+\end{enumerate}
+
+%q
+\end{enumerate}
+
+\end{document}

@@ -1,0 +1,22 @@
+1) Abrir Anaconda prompt.
+2) Escribir: jupyter notebook --generate-config
+3) La ejecución de dicho comando habrá generado el fichero de configuración en
+
+C:\Users\username\.jupyter\jupyter_notebook_config.py
+
+(donde username será el nombre de tu usuario)
+4) Editar dicho fichero
+5) Buscar la línea
+
+#c.NotebookApp.notebook_dir = ''
+
+    Eliminar el símbolo # del comienzo
+    Añadir entre las comillas del final la carpeta de inicio que desees
+    Guardar el fichero
+
+Por ejemplo, si quieres que tu carpeta de inicio sea c:\, la mencionada línea deberá quedar de la siguiente manera:
+
+c.NotebookApp.notebook_dir = 'c:/'
+
+Importante: asegúrate de usar "forward slashes" (es decir, el símbolo /) en lugar de slahes (el símbolo \) en el path que introduzcas. Es decir, la siguiente línea no funcionaría:
+

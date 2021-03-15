@@ -1,0 +1,244 @@
+%no borrar PREAMBULO
+\documentclass[12pt]{article}
+
+\usepackage[top=3.5 cm, bottom=2.5  cm, left=3 cm, right=3 cm]{geometry}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\usepackage[hidelinks]{hyperref} %esta opción saca las cajas de colores de los hiperlinks
+
+\fancyfoot[C]{\thepage }  %numera las páginas
+
+\usepackage[utf8]{inputenc}
+
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{xcolor}
+\usepackage{fancyvrb}
+\newcommand\verbbf[1]{\textcolor[rgb]{0,0,1}}%comando para colorear el texto en verbatim
+
+%\linespread{1} %por si queremos achicar el espacio entre lineas
+
+\usepackage{tabularx,booktabs}
+\usepackage{graphicx}
+\usepackage{float} %para que las figuras puedan ponerse en cualquier lado
+
+\usepackage{subcaption}
+\usepackage{layout}
+\usepackage{multicol}  %para escribir en columnnas 
+\usepackage{float}
+\usepackage{textcomp}
+\usepackage{natbib}
+\usepackage{tikz}
+\usepackage{multirow} %para cambiar el alto de una fila en una tabla
+\tikzset{
+  connect/.style = { dashed, gray }
+}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.8}
+\usepackage[english ,spanish]{babel}
+\usepackage{latexsym}
+\usepackage{verbatim}
+
+%\usepackage{alltt}
+\usepackage{indentfirst}
+
+\usepackage{fancybox, calc} 
+
+\usepackage[flushmargin]{footmisc} %para alinear las notas de página
+
+\usepackage{url}
+\usepackage{advdate}
+\usepackage{wrapfig}
+\usepackage{amsthm}
+\usepackage[inline]{enumitem} %para hacer listas en una linea, los mismos comandos con *
+\newtheorem*{myteo}{Teorema} % la * es para no numerarlos
+\newtheorem*{myexample}{Ejemplo}
+\newtheorem*{myprop}{Proposición}
+\newtheorem*{mylem}{Lema}
+\theoremstyle{definition}
+\newtheorem*{mydef}{Definición}
+\newtheorem{ejer}{Ejercicio}
+\newtheorem*{mydefs}{Definiciones}
+%\theoremstyle{remark}
+\newtheorem*{myobs}{Observación}
+\newtheorem*{remark}{Importante}
+
+\renewcommand{\baselinestretch}{1}  %interlineado
+
+\addto\captionsspanish{%
+  \renewcommand{\figurename}{Figura}%
+}
+
+\newcommand\myText[1]{\text{\scriptsize\tabular[t]{@{}l@{}}#1\endtabular}}
+\addto\captionsspanish{%
+  \renewcommand{\tablename}{Tabla}%
+}
+
+\def \ds {\displaystyle} %define un comando abreviado  
+\def\com{“R”}
+
+\usepackage{hyperref}%para referencias de internet con link!
+\newcommand*{\fullref}[1]{\hyperref[{#1}]{ \nameref*{#1}}}
+%comando \fullref para que ademas del número de capitulo, sección etc. escriba el título del capitulo, sección o lo que sea a lo que estamos haciendo referencia
+
+\newcommand\comentario[1]{\textcolor{red}{#1}}%comentarios en el pdf
+
+\interfootnotelinepenalty=10000 %previene que se pasen a otra página las notas de pie
+\raggedbottom 
+\addtolength{\topskip}{0pt plus 10pt}
+\addtolength{\footnotesep}{0.1mm}
+
+\VerbatimFootnotes%para poder usar Verbatim en las notas de pie
+
+\begin{document}
+
+\begin{enumerate}
+
+\item  
+%q
+Una manguera vierte agua continuamente en una Pelopincho. La profundidad del agua cambia a razón de $r(t)=0,3t$ centímetros, donde $t$ es el tiempo en minutos. En $t=0$ la profundidad del agua era de 35 cm. ¿Cuál de las siguientes expresiones permite calcular el cambio en la profundidad del agua al cuarto minuto? Explicar por qué y calcular. 
+\begin{enumerate}
+\item $\int_{0}^{4}[35+r(t)]dt$
+\item $\int_{0}^{4} r(t)dt$
+\item $35 + \int_{0}^{4} r(t) dt$
+\item $35- \int_{0}^{4}r(t) dt$
+\end{enumerate}
+	
+\item  
+%q
+Un dique tiene una fisura de la cual emana agua continuamente. La profundidad del dique cambia a razón de $r(t)=0,6t$ metros, donde $t$ es el tiempo en horas. En $t= 0$ la profundidad del agua era de 375 m. ¿Cuál de las siguientes expresiones permite calcular el cambio en la profundidad del agua después de cuatro horas? Explicar por qué.
+\begin{enumerate}
+\item $\int_{0}^{4}[375-r(t)]dt$
+\item $\int_{0}^{4} r(t)dt$
+\item $375 - \int_{0}^{4} r(t) dt$
+\item $\int_{0}^{4}[375t-r(t)]dt$
+\end{enumerate}
+
+\item  
+%q
+Para $x \in[2,7]$, el área comprendida entre  el eje $x$ y el gráfico de la función:
+\begin{equation*}
+f(x) = \frac{9-3x}{(x-1)^2}
+\end{equation*}
+se calcula mediante uno de los  siguientes cálculos:
+\begin{enumerate}
+\item $\int_{2}^{7}f(x)dx$
+\item $\int_{2}^{3}-f(x)dx + \int_{3}^{7}f(x)dx$
+\item $\int_{2}^{7}-f(x)dx$
+\item $\int_{2}^{3}f(x)dx - \int_{3}^{7}f(x)dx$
+\end{enumerate}
+Decir cuál es el correcto y por qué.
+
+\item  
+%q
+Para $x \in[2,6]$, l área comprendida entre  el eje $x$ y el gráfico de la función:
+\begin{equation*}
+f(x) = \frac{2x-8}{(x-1)^3}
+\end{equation*}
+se calcula mediante uno de los  siguientes cálculos:
+\begin{enumerate}
+\item $\int_{2}^{4}|f(x)|dx+ \int_{4}^{6}f(x)dx$
+\item $\int_{2}^{6}f(x)dx $
+\item $\int_{2}^{6}[x-f(x)]dx$
+\item $\int_{2}^{4}f(x)dx - \int_{4}^{6}f(x)dx$
+\end{enumerate}
+Decir cuál es el correcto y por qué.
+
+\item  
+%q
+Calcular el área encerrada por los gráficos de las funciones $f(x) = 2x.\ln x$ y $g(x) = 10.\ln x$.
+
+\item  
+%q
+Dadas las funciones: 
+\begin{equation*}
+f(x) = \frac{4}{x+3}  \qquad \qquad    \text{y }\qquad \qquad  g(x) = x + 3,
+\end{equation*}
+calcular el área del recinto delimitado por sus gráficos. 
+
+\item  
+%q
+Calcular el área encerrada por el gráfico de la función $f(x) =(3-x) \sqrt{x+1}$ y el eje $x$.
+
+\item  
+%q
+El número de personas en la red social de una persona crece a una razón de $r(t)= -2(t-3)^2+23$ personas por mes, donde $t$ es el tiempo medido en meses desde que esa persona abrió su cuenta en la red. Al tiempo $t=4$ meses esta persona ya tenía 80 contactos en su red. ¿Cuál de los siguientes cálculos permite calcular la cantidad de contactos totales  en la red de esta persona al final del sexto mes? 
+\begin{enumerate}
+\item $80 + \int_{4}^{6}r(t)dt$
+\item $r(6) - r(0) $
+\item $\int_{4}^{6}r(t)dt$
+\item $\int_{0}^{6}r(t)dt$
+\end{enumerate}
+Explicar por qué y calcular. 
+
+\item  
+%q
+La población de un pueblo crece a una razón de de $r(t)=300e^{0,3t}$  personas por año (donde $t$ es el tiempo en años). En el tiempo $t=2$, la población del pueblo es de 1200 personas. ¿Cuál de los siguientes cálculos que permite conocer la población del pueblo en $t=7$? 
+\begin{enumerate}
+\item $\int_{2}^{7}r(t)dt$
+\item $r'(7) - r'(2) $
+\item $[\int_{2}^{7}r(t)dt] -1200$
+\item $1200 + \int_{2}^{7}r(t)dt$
+\end{enumerate}
+Explicar por qué y calcular. 
+
+\item  
+%q
+Calcular el área del recinto que contiene al punto $(1,1)$, limitado por los gráficos de las funciones $f(x)= (x-1)^2$, $g(x)=x+1$ y la recta perpendicular a la tangente a $f(x)$ que pasa por el punto $(2,1)$. Graficar.
+
+\item  
+%q
+El área de la región del plano limitada por $f(x)=1-x^2$, la recta $x=4$, el eje $x$ y el eje $y$ se obtiene mediante el cálculo:
+\begin{enumerate}
+\item  $\int_{0}^{4}f(x)dx$
+\item  $-\int_{0}^{4}f(x)dx$
+\item  $\int_{0}^{1}f(x)dx + \int_{1}^{4}-f(x)dx$
+\item  $\int_{0}^{1}f(x))dx + \int_{1}^{4}f(x)dx$
+\end{enumerate}
+Elegir la única respuesta correcta, explicar y calcular. 
+
+\item  
+%q
+Para calcular el área de la región delimitada por $f(x)= x^3-5x^2+4x$ y el eje $x$, ¿cuál es el cálculo adecuado? Explicar y calcular el valor del área.
+\begin{enumerate}
+\item  $\int_{0}^{4}f(x)dx$
+\item  $|\int_{0}^{4}f(x)dx|$
+\item  $\int_{0}^{1}f(x)dx + \int_{1}^{4}-f(x)dx$
+\item  $\int_{0}^{4}(x - f(x))dx$
+\end{enumerate}
+
+\item  
+%q
+Calcular el área del recinto delimitado por las rectas $x=8$ e $y = 2$, y el gráfico de la función:
+\begin{equation*}
+f(x)=\frac{x-4}{x-5}
+\end{equation*}
+
+
+
+\item  
+%q
+El área de la región delimitada por las funciones $f(x) = \sqrt{3x-6}$, $g(x) = \sqrt{x+4}$ y el eje $x$ se obtiene calculando:
+\begin{enumerate}
+\item  $\int_{-4}^{2}g(x) dx + \int_{2}^{5}(g(x) - f(x)) dx$
+\item  $\int_{-4}^{5}(g(x) - f(x)) dx$
+\item  $\int_{-4}^{2}(f(x)-g(x)) dx + \int_{2}^{5}(g(x) - f(x))dx$
+\item  $\int_{-4}^{2}(g(x) - f(x))dx + \int_{2}^{5}(f(x) - g(x))dx$
+\end{enumerate}
+Elegir la única respuesta correcta, explicar y calcular. 
+
+\item  
+%q
+Sea $f(x)=3(x-a)(x-4)$ con $0<a<4$;  $A_1$ es el área entre el eje $y$, el eje $x$ y la función $f(x)$; $A_2$ es el área entre el eje $x$  y la función $f(x)$ entre $x = a$ y $x = 4$. Hallar $a$ para que $A_1=A_2$. 
+
+\item  
+%q
+Calcular el área del  recinto delimitado por la recta $y = f(5)$,  el eje $y$ y el gráfico de la función:
+\begin{equation*}
+f(x)=(2x-5)e^{x^2-5x}
+\end{equation*}
+
+%q
+\end{enumerate}
+
+\end{document}

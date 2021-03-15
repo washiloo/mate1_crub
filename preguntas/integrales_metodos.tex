@@ -1,0 +1,193 @@
+%no borrar PREAMBULO
+\documentclass[12pt]{article}
+
+\usepackage[top=3.5 cm, bottom=2.5  cm, left=3 cm, right=3 cm]{geometry}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\usepackage[hidelinks]{hyperref} %esta opción saca las cajas de colores de los hiperlinks
+
+\fancyfoot[C]{\thepage }  %numera las páginas
+
+\usepackage[utf8]{inputenc}
+
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{xcolor}
+\usepackage{fancyvrb}
+\newcommand\verbbf[1]{\textcolor[rgb]{0,0,1}}%comando para colorear el texto en verbatim
+
+%\linespread{1} %por si queremos achicar el espacio entre lineas
+
+\usepackage{tabularx,booktabs}
+\usepackage{graphicx}
+\usepackage{float} %para que las figuras puedan ponerse en cualquier lado
+
+\usepackage{subcaption}
+\usepackage{layout}
+\usepackage{multicol}  %para escribir en columnnas 
+\usepackage{float}
+\usepackage{textcomp}
+\usepackage{natbib}
+\usepackage{tikz}
+\usepackage{multirow} %para cambiar el alto de una fila en una tabla
+\tikzset{
+  connect/.style = { dashed, gray }
+}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.8}
+\usepackage[english ,spanish]{babel}
+\usepackage{latexsym}
+\usepackage{verbatim}
+
+%\usepackage{alltt}
+\usepackage{indentfirst}
+
+\usepackage{fancybox, calc} 
+
+\usepackage[flushmargin]{footmisc} %para alinear las notas de página
+
+\usepackage{url}
+\usepackage{advdate}
+\usepackage{wrapfig}
+\usepackage{amsthm}
+\usepackage[inline]{enumitem} %para hacer listas en una linea, los mismos comandos con *
+\newtheorem*{myteo}{Teorema} % la * es para no numerarlos
+\newtheorem*{myexample}{Ejemplo}
+\newtheorem*{myprop}{Proposición}
+\newtheorem*{mylem}{Lema}
+\theoremstyle{definition}
+\newtheorem*{mydef}{Definición}
+\newtheorem{ejer}{Ejercicio}
+\newtheorem*{mydefs}{Definiciones}
+%\theoremstyle{remark}
+\newtheorem*{myobs}{Observación}
+\newtheorem*{remark}{Importante}
+
+\renewcommand{\baselinestretch}{1}  %interlineado
+
+\addto\captionsspanish{%
+  \renewcommand{\figurename}{Figura}%
+}
+
+\newcommand\myText[1]{\text{\scriptsize\tabular[t]{@{}l@{}}#1\endtabular}}
+\addto\captionsspanish{%
+  \renewcommand{\tablename}{Tabla}%
+}
+
+\def \ds {\displaystyle} %define un comando abreviado  
+\def\com{“R”}
+
+\usepackage{hyperref}%para referencias de internet con link!
+\newcommand*{\fullref}[1]{\hyperref[{#1}]{ \nameref*{#1}}}
+%comando \fullref para que ademas del número de capitulo, sección etc. escriba el título del capitulo, sección o lo que sea a lo que estamos haciendo referencia
+
+\newcommand\comentario[1]{\textcolor{red}{#1}}%comentarios en el pdf
+
+\interfootnotelinepenalty=10000 %previene que se pasen a otra página las notas de pie
+\raggedbottom 
+\addtolength{\topskip}{0pt plus 10pt}
+\addtolength{\footnotesep}{0.1mm}
+
+\VerbatimFootnotes%para poder usar Verbatim en las notas de pie
+
+\begin{document}
+
+\begin{enumerate}
+
+\item  
+%q
+Calcular $\int_{0}^{\pi}x^2.\sin{x} dx$ sabiendo que $ \int_{0}^{\pi}x.\cos x dx = -2$
+
+\item  
+%q
+Calcular $\int_{0}^{1}x^{10}. e^x dx$ sabiendo que $ \int_{0}^{1}x^9. e^x  = A$
+
+\item  
+%q
+Si$ \int_{0}^{1}x^{20}. e^x dx =K$ enconces $ \int_{0}^{1}x^{21}. e^x$ es:
+\begin{enumerate}
+\item  $e - 21K$
+\item  $e + 21K$
+\item  $e - \frac{1}{21}K$
+\item  $e + \frac{1}{21}K$
+\end{enumerate}
+Decir cuál es la opción correcta y justificar.
+\item  
+%q
+Calcular: 
+\begin{enumerate}
+\item $\int_{0}^{1}x. e^{2x^2} dx$ 
+\item $\int x. e^{-3x} dx$ 
+\end{enumerate}
+
+\item  
+%q
+Si$\int_{1}^{4} \frac{dx}{x\sqrt{x}}$ es:
+\begin{enumerate}
+\item  $\ln 4 + \frac{14}{3}$
+\item  $2$
+\item  $1$
+\item  $\frac{3}{2}$
+\end{enumerate}
+
+\item  
+%q
+Calcular: 
+\begin{enumerate}
+\item $\int_{0}^{1}x. e^{2x^2} dx$ 
+\item $\int x. \sin{2x}dx$ 
+\end{enumerate}
+ 
+\item  
+%q
+Calcular el área de la región encerrada entre $f(x) = x.e^{x^2}$ y $g(x) = x.e^{x+2}$. \textit{Pista}: buscar las primitivas de $f(x)$ y $g(x)$, luego los puntos de intersección de ambas funciones, plantear cómo se calcula el área y luego calcular usando las primitivas halladas.
+
+\item  
+%q
+Si en la integral
+\begin{equation*}
+I =\int \frac{1}{1+e^{-2x}}dx
+\end{equation*} 
+se hace la sustitución $u = 1+e^{-2x}$, la integral que queda para calcular es:
+\begin{enumerate}
+\item $\frac{1}{2}\int \frac{1}{u.(u-1}du$ 
+\item $-\frac{1}{2}\int \frac{1}{u.(u-1}du$ 
+\item $2\int \frac{1}{u}du$
+\item $-2\int \frac{1}{u}du$
+ \end{enumerate}
+Decir cuál es la opción correcta y calcular.
+
+\item  
+%q
+Si en la integral
+\begin{equation*}
+I =\int \frac{1}{x\ln^5x}dx
+\end{equation*} 
+se hace la sustitución $u = \ln x$, la integral que queda para calcular es:
+\begin{enumerate}
+\item $\frac{1}{5}\int \frac{1}{e^u.u^5}du$ 
+\item $-\frac{1}{5}\int \frac{1}{u^5}du$ 
+\item $\int \frac{1}{u^5}du$
+\item $\int \frac{1}{e^u.u^5}du$
+ \end{enumerate}
+Decir cuál es la opción correcta y calcular.
+
+\item  
+%q
+Si en la integral
+\begin{equation*}
+\int_{0}^{1} \cos{\sqrt{x}}dx
+\end{equation*} 
+se hace la sustitución $u = \sqrt{x}$, la integral que queda para calcular es:
+\begin{enumerate}
+\item $2\int_{0}^{1} u\cos u du$ 
+\item $\frac{1}{2}\int_{0}^{1} \frac{\cos u }{u} du$
+\item $\frac{1}{2}\int_{0}^{1} u\cos u du$
+\item $2 \int_{0}^{1} \frac{\cos u }{u} $
+ \end{enumerate}
+Decir cuál es la opción correcta y calcular.
+
+%q
+\end{enumerate}
+
+\end{document}

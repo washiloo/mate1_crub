@@ -1,0 +1,164 @@
+%no borrar PREAMBULO
+\documentclass[12pt]{article}
+
+\usepackage[top=3.5 cm, bottom=2.5  cm, left=3 cm, right=3 cm]{geometry}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\usepackage[hidelinks]{hyperref} %esta opción saca las cajas de colores de los hiperlinks
+
+\fancyfoot[C]{\thepage }  %numera las páginas
+
+\usepackage[utf8]{inputenc}
+
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{xcolor}
+\usepackage{fancyvrb}
+\newcommand\verbbf[1]{\textcolor[rgb]{0,0,1}}%comando para colorear el texto en verbatim
+
+%\linespread{1} %por si queremos achicar el espacio entre lineas
+
+\usepackage{tabularx,booktabs}
+\usepackage{graphicx}
+\usepackage{float} %para que las figuras puedan ponerse en cualquier lado
+
+\usepackage{subcaption}
+\usepackage{layout}
+\usepackage{multicol}  %para escribir en columnnas 
+\usepackage{float}
+\usepackage{textcomp}
+\usepackage{natbib}
+\usepackage{tikz}
+\usepackage{multirow} %para cambiar el alto de una fila en una tabla
+\tikzset{
+  connect/.style = { dashed, gray }
+}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.8}
+\usepackage[english ,spanish]{babel}
+\usepackage{latexsym}
+\usepackage{verbatim}
+
+%\usepackage{alltt}
+\usepackage{indentfirst}
+
+\usepackage{fancybox, calc} 
+
+\usepackage[flushmargin]{footmisc} %para alinear las notas de página
+
+\usepackage{url}
+\usepackage{advdate}
+\usepackage{wrapfig}
+\usepackage{amsthm}
+\usepackage[inline]{enumitem} %para hacer listas en una linea, los mismos comandos con *
+\newtheorem*{myteo}{Teorema} % la * es para no numerarlos
+\newtheorem*{myexample}{Ejemplo}
+\newtheorem*{myprop}{Proposición}
+\newtheorem*{mylem}{Lema}
+\theoremstyle{definition}
+\newtheorem*{mydef}{Definición}
+\newtheorem{ejer}{Ejercicio}
+\newtheorem*{mydefs}{Definiciones}
+%\theoremstyle{remark}
+\newtheorem*{myobs}{Observación}
+\newtheorem*{remark}{Importante}
+
+\renewcommand{\baselinestretch}{1}  %interlineado
+
+\addto\captionsspanish{%
+  \renewcommand{\figurename}{Figura}%
+}
+
+\newcommand\myText[1]{\text{\scriptsize\tabular[t]{@{}l@{}}#1\endtabular}}
+\addto\captionsspanish{%
+  \renewcommand{\tablename}{Tabla}%
+}
+
+\def \ds {\displaystyle} %define un comando abreviado  
+\def\com{“R”}
+
+\usepackage{hyperref}%para referencias de internet con link!
+\newcommand*{\fullref}[1]{\hyperref[{#1}]{ \nameref*{#1}}}
+%comando \fullref para que ademas del número de capitulo, sección etc. escriba el título del capitulo, sección o lo que sea a lo que estamos haciendo referencia
+
+\newcommand\comentario[1]{\textcolor{red}{#1}}%comentarios en el pdf
+
+\interfootnotelinepenalty=10000 %previene que se pasen a otra página las notas de pie
+\raggedbottom 
+\addtolength{\topskip}{0pt plus 10pt}
+\addtolength{\footnotesep}{0.1mm}
+
+\VerbatimFootnotes%para poder usar Verbatim en las notas de pie
+
+\begin{document}
+
+\begin{enumerate}
+
+\item  
+%q
+Hallar el valor de los parámetros $a$, $b$ y $c$ para que la función $f(x) = ax^3+x^2+bx+c$ tenga un máximo relativo en $(0,3)$ y un punto de inflexión en $x=1$.
+
+\item  
+%q
+Sea $f(x)= x^3 + ax^2+bx+5$. Halla $a$ y $b$ para que la curva $y=f(x)$ tenga en $x=1$ un punto de inflexión con tangente horizontal.
+
+\item  
+%q
+Sea $f(x) = x^2-e^{-ax}$. Calcular el valor de $a$ para que la función tenga un extremo relativo en $x = 2$. Decir de qué tipo de extremo se trata. Explicar.
+
+\item  
+%q
+Sea la función definida a trozos:
+\begin{equation*}
+f(x) = 
+\begin{cases} 
+\frac{1-x}{e^x}& \text{si  } x < 0 \\
+ x^2+ax+b& \text{si  } x \geq 0
+\end{cases} 
+\end{equation*}
+\begin{enumerate}
+\item Calcular los valores de los parámetros $a$ y $b$ para que la función sea derivable en $x=0$.
+\item Encontrar y clasificar los extremos de esta función.
+\end{enumerate}
+
+\item  
+%q
+Sea la función definida a trozos:
+\begin{equation*}
+f(x) = 
+\begin{cases} 
+a x^2+bx+ c& \text{si  } x \leq 0 \\
+x.\ln{x}& \text{si  } x > 0
+\end{cases} 
+\end{equation*}
+\begin{enumerate}
+\item Determinar $a$, $b$ y $c$ para que la función sea continua en $x = 0$, tenga un máximo en $x = -1$ y la tangente en $x = -2$ sea paralela a la recta $y = 2x$. Justificar.
+\item ¿Es derivable la función en $x = 0$?. Justificar.
+\end{enumerate}
+
+\item  
+%q
+El número de personas ingresadas en un hospital por una infección después de t semanas viene dado por la función:
+\begin{equation*}
+N(t) = \frac{350t}{2t^2-3t+8}
+\end{equation*}
+\begin{enumerate}
+\item Calcular el máximo de personas ingresadas y decir en que momento ($t$) ocurre. Justificar.
+\item ¿A partir de qué semana, después de alcanzar el máximo, el número de ingresados es menor a $25$ personas?. Justificar.
+\end{enumerate}
+ 
+\item  
+%q
+La función $f(x) = \frac{\ln x}{x^2}$ alcanza extremos locales en:
+\begin{enumerate}
+\item En ningún punto de su dominio.
+\item Sólo en $x = \sqrt{e}$, donde alcanza un mínimo.
+\item Sólo en $x = \sqrt{e}$, donde alcanza un máximo.
+\item En $x = 0$ alcanza un mínimo y en $x = \sqrt{e}$ alcanza un mínimo.
+\end{enumerate}
+Justificar.
+
+%q
+\end{enumerate}
+
+\end{document}

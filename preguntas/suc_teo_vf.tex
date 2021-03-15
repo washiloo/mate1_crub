@@ -1,0 +1,143 @@
+%no borrar PREAMBULO
+\documentclass[12pt]{article}
+
+\usepackage[top=3.5 cm, bottom=2.5  cm, left=3 cm, right=3 cm]{geometry}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\usepackage[hidelinks]{hyperref} %esta opción saca las cajas de colores de los hiperlinks
+
+\fancyfoot[C]{\thepage }  %numera las páginas
+
+\usepackage[utf8]{inputenc}
+
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{xcolor}
+\usepackage{fancyvrb}
+\newcommand\verbbf[1]{\textcolor[rgb]{0,0,1}}%comando para colorear el texto en verbatim
+
+%\linespread{1} %por si queremos achicar el espacio entre lineas
+
+\usepackage{tabularx,booktabs}
+\usepackage{graphicx}
+\usepackage{float} %para que las figuras puedan ponerse en cualquier lado
+
+\usepackage{subcaption}
+\usepackage{layout}
+\usepackage{multicol}  %para escribir en columnnas 
+\usepackage{float}
+\usepackage{textcomp}
+\usepackage{natbib}
+\usepackage{tikz}
+\usepackage{multirow} %para cambiar el alto de una fila en una tabla
+\tikzset{
+  connect/.style = { dashed, gray }
+}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.8}
+\usepackage[english ,spanish]{babel}
+\usepackage{latexsym}
+\usepackage{verbatim}
+
+%\usepackage{alltt}
+\usepackage{indentfirst}
+
+\usepackage{fancybox, calc} 
+
+\usepackage[flushmargin]{footmisc} %para alinear las notas de página
+
+\usepackage{url}
+\usepackage{advdate}
+\usepackage{wrapfig}
+\usepackage{amsthm}
+\usepackage[inline]{enumitem} %para hacer listas en una linea, los mismos comandos con *
+\newtheorem*{myteo}{Teorema} % la * es para no numerarlos
+\newtheorem*{myexample}{Ejemplo}
+\newtheorem*{myprop}{Proposición}
+\newtheorem*{mylem}{Lema}
+\theoremstyle{definition}
+\newtheorem*{mydef}{Definición}
+\newtheorem{ejer}{Ejercicio}
+\newtheorem*{mydefs}{Definiciones}
+%\theoremstyle{remark}
+\newtheorem*{myobs}{Observación}
+\newtheorem*{remark}{Importante}
+
+\renewcommand{\baselinestretch}{1}  %interlineado
+
+\addto\captionsspanish{%
+  \renewcommand{\figurename}{Figura}%
+}
+
+\newcommand\myText[1]{\text{\scriptsize\tabular[t]{@{}l@{}}#1\endtabular}}
+\addto\captionsspanish{%
+  \renewcommand{\tablename}{Tabla}%
+}
+
+\def \ds {\displaystyle} %define un comando abreviado  
+\def\com{“R”}
+
+\usepackage{hyperref}%para referencias de internet con link!
+\newcommand*{\fullref}[1]{\hyperref[{#1}]{ \nameref*{#1}}}
+%comando \fullref para que ademas del número de capitulo, sección etc. escriba el título del capitulo, sección o lo que sea a lo que estamos haciendo referencia
+
+\newcommand\comentario[1]{\textcolor{red}{#1}}%comentarios en el pdf
+
+\interfootnotelinepenalty=10000 %previene que se pasen a otra página las notas de pie
+\raggedbottom 
+\addtolength{\topskip}{0pt plus 10pt}
+\addtolength{\footnotesep}{0.1mm}
+
+\VerbatimFootnotes%para poder usar Verbatim en las notas de pie
+
+\begin{document}
+
+\begin{enumerate}
+
+\item  
+%q
+Decir si las siguientes afirmaciones son Verdaderas  o Falsas. Justificar y en el caso de las afirmaciones falsas, mostrar un contraejemplo.
+
+ \begin{enumerate}
+        \item El cociente de dos sucesiones convergentes es convergente.
+        \item El cuadrado de una sucesión divergente es divergente.
+        \item El producto de una sucesión divergente por una convergente es divergente.
+        \item La suma de dos sucesiones divergentes es divergente.
+\end{enumerate}
+
+\item  
+%q
+Decir si las siguientes afirmaciones son Verdaderas  o Falsas. Justificar y en el caso de las afirmaciones falsas, mostrar un contraejemplo.
+
+\begin{enumerate}
+	\item Si una sucesión es oscilante no puede ser creciente.
+	\item La sucesión $a(n) = 16n – n^2$ no es creciente ni decreciente.
+	\item Toda sucesión creciente diverge.
+	\item Si una sucesión es acotada es convergente.
+\end{enumerate}
+
+\item  
+%q
+Decir si las siguientes afirmaciones son Verdaderas  o Falsas. Justificar y en el caso de las afirmaciones falsas, mostrar un contraejemplo.
+
+\begin{enumerate}
+	\item Ser convergente es condición suficiente para que una sucesión sea acotada.
+	\item Toda sucesión divergente es creciente.
+	\item Si una sucesión es convergente no puede ser decreciente.
+	\item Si una sucesión es acotada no es divergente.
+\end{enumerate}
+
+\item  
+%q
+Decir si las siguientes afirmaciones son Verdaderas  o Falsas. Justificar y en el caso de las afirmaciones falsas, mostrar un contraejemplo.
+
+\begin{enumerate}
+	\item El cociente de dos sucesiones divergentes es divergente.
+	\item El cuadrado de una sucesión convergente es convergente.
+	\item Si una sucesión $a(n)$ converge a $0$, el producto $a(n).b(n)$, convergerá a $0$ sin importar el  comportamiento de $b(n)$.
+	\item Si una sucesión es divergente no puede ser acotada.
+\end{enumerate}
+%q
+\end{enumerate}
+
+\end{document}

@@ -1,3 +1,8 @@
+.ipynb_checkpoints/
+anaconda_wine/
+
+
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof

@@ -1,0 +1,137 @@
+%no borrar PREAMBULO
+\documentclass[12pt]{article}
+
+\usepackage[top=3.5 cm, bottom=2.5  cm, left=3 cm, right=3 cm]{geometry}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\usepackage[hidelinks]{hyperref} %esta opción saca las cajas de colores de los hiperlinks
+
+\fancyfoot[C]{\thepage }  %numera las páginas
+
+\usepackage[utf8]{inputenc}
+
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{xcolor}
+\usepackage{fancyvrb}
+\newcommand\verbbf[1]{\textcolor[rgb]{0,0,1}}%comando para colorear el texto en verbatim
+
+%\linespread{1} %por si queremos achicar el espacio entre lineas
+
+\usepackage{tabularx,booktabs}
+\usepackage{graphicx}
+\usepackage{float} %para que las figuras puedan ponerse en cualquier lado
+
+\usepackage{subcaption}
+\usepackage{layout}
+\usepackage{multicol}  %para escribir en columnnas 
+\usepackage{float}
+\usepackage{textcomp}
+\usepackage{natbib}
+\usepackage{tikz}
+\usepackage{multirow} %para cambiar el alto de una fila en una tabla
+\tikzset{
+  connect/.style = { dashed, gray }
+}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.8}
+\usepackage[english ,spanish]{babel}
+\usepackage{latexsym}
+\usepackage{verbatim}
+
+%\usepackage{alltt}
+\usepackage{indentfirst}
+
+\usepackage{fancybox, calc} 
+
+\usepackage[flushmargin]{footmisc} %para alinear las notas de página
+
+\usepackage{url}
+\usepackage{advdate}
+\usepackage{wrapfig}
+\usepackage{amsthm}
+\usepackage[inline]{enumitem} %para hacer listas en una linea, los mismos comandos con *
+\newtheorem*{myteo}{Teorema} % la * es para no numerarlos
+\newtheorem*{myexample}{Ejemplo}
+\newtheorem*{myprop}{Proposición}
+\newtheorem*{mylem}{Lema}
+\theoremstyle{definition}
+\newtheorem*{mydef}{Definición}
+\newtheorem{ejer}{Ejercicio}
+\newtheorem*{mydefs}{Definiciones}
+%\theoremstyle{remark}
+\newtheorem*{myobs}{Observación}
+\newtheorem*{remark}{Importante}
+
+\renewcommand{\baselinestretch}{1}  %interlineado
+
+\addto\captionsspanish{%
+  \renewcommand{\figurename}{Figura}%
+}
+
+\newcommand\myText[1]{\text{\scriptsize\tabular[t]{@{}l@{}}#1\endtabular}}
+\addto\captionsspanish{%
+  \renewcommand{\tablename}{Tabla}%
+}
+
+\def \ds {\displaystyle} %define un comando abreviado  
+\def\com{“R”}
+
+\usepackage{hyperref}%para referencias de internet con link!
+\newcommand*{\fullref}[1]{\hyperref[{#1}]{ \nameref*{#1}}}
+%comando \fullref para que ademas del número de capitulo, sección etc. escriba el título del capitulo, sección o lo que sea a lo que estamos haciendo referencia
+
+\newcommand\comentario[1]{\textcolor{red}{#1}}%comentarios en el pdf
+
+\interfootnotelinepenalty=10000 %previene que se pasen a otra página las notas de pie
+\raggedbottom 
+\addtolength{\topskip}{0pt plus 10pt}
+\addtolength{\footnotesep}{0.1mm}
+
+\VerbatimFootnotes%para poder usar Verbatim en las notas de pie
+
+\begin{document}
+
+\begin{enumerate}
+
+\item  
+%q
+Hay que alambrar tres cuadrados en un campo con las siguientes condiciones:
+\begin{itemize}
+\item El perímetro del primero es el triple del perímetro del tercero.
+\item El perímetro total es de 1664 metros.
+\item La suma de las áreas de los tres cuadrados es la mínima posible.
+\end{itemize}
+Hallar la dimensión de los cuadrados
+
+\item  
+%q
+Con un alambre de 140 metros se quieren cortar tres pedazos de modo que uno de los pedazos tiene el doble de largo que el otro ( y el tercero es lo que sobra). Con esos pedazos de alambre se quieren hacer tres cuadrados de modo que la suma de sus áreas sea mínima. Calcular la longitud de cada trozo de alambre. 
+
+\item  
+%q
+Hay que hacer dos cuadrados de tela, de precios diferentes: una cuesta $300\$ $ el metro cuadrado mientras que la otra cuesta $200\$$ por metro cuadrado. ¿Cómo deben elegirse las medidas de los cuadrados para que el costo sea mínimo y la suma de los perímetros de los cuadrados de tela sea de $10$ metros?
+
+\item  
+%q
+Una empresa dispone de $15$ spots publicitarios que proporcionan $\$57.500$ mensuales de ganancias por ventascada uno. Se calcula que, por cada nuevo spot que se contrate, la ganancia que proporciona cada uno disminuye en $\$2.500$ .Se pide:
+\begin{enumerate}
+\item Escribir la función que determina la ganancia mensual que se obtendría si se contrataran $x$ spots publicitarios más.
+\item Decir cuál es el número total de spots publicitarios que debe tener la empresa para que la ganancia asociada a éstos sea máxima.
+\item Cuál sería la ganancia en ese caso
+\end{enumerate}
+
+\item  
+%q
+Se quiere construir una caja con tapa que tenga el máximo volumen y que sea el doble de ancha que de larga. Se dispone de $30 m^2$ de chapa. ¿Qué medidas de largo ancho y alto debe tener la caja?
+
+\item  
+%q
+ Se desea cercar una porción rectangular de tierra de $294 m^2$  y dividirla en tres partes iguales mediante dos cercas paralelas a uno de los lados. ¿Qué dimensiones del rectángulo exterior requerirá la menor longitud total de las tres cercas?(Se sugiere hacer un dibujito)
+
+
+
+%q
+\end{enumerate}
+
+\end{document}
