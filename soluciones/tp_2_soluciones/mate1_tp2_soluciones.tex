@@ -1,0 +1,279 @@
+\documentclass[12pt]{article}
+
+% Paquetes
+
+\usepackage[legalpaper,margin = 2.5cm]{geometry} % Márgenes y cosas de la página
+
+\usepackage[utf8]{inputenc} % Tildes y eñes
+\usepackage[spanish]{babel} % Caracteres español
+
+\usepackage{amssymb} % Para símbolos de conjuntos conocidos (R,Z,C,Q)
+\usepackage{amsmath} % Para recuadrar ecuaciones con \boxed
+\usepackage{graphicx} % Para uso de figuras
+\usepackage{svg} % Figuras en .svg
+\usepackage{float} % Para ubicar una figura/tabla de manera forzada usando [H]
+\spanishdecimal{.} % Cambia la coma por punto decimal
+
+% Listings
+\usepackage{listings} % Para escribir código
+\usepackage{xcolor}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+	backgroundcolor=\color{backcolour},   
+	commentstyle=\color{codegreen},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{codepurple},
+	basicstyle=\ttfamily\footnotesize,
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=b,                    
+	keepspaces=true,                 
+	numbers=left,                    
+	numbersep=5pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,                  
+	tabsize=2
+}
+
+\lstset{style=mystyle}
+
+\newcommand{\grad}{\hspace{-2mm}$\phantom{a}^{\circ}$} % Símbolo de grado
+\def\mcolor#1#{\@mcolor{#1}}
+\def\@mcolor#1#2#3{\protect\leavevmode\color#1{#2}#3\color{black}}
+
+%opening
+\title{
+Trabajo práctico Nº 0\\
+\small{Soluciones de ejercicios seleccionados}
+}
+%\author{Giana, Fabián E.}
+
+\begin{document}
+
+\maketitle
+
+\section{Parte B}
+
+\begin{enumerate}
+\item[2)] A continuación se muestran los gráficos correspondientes a los productos cartesianos. Usamos líneas punteadas para indicar elementos que no pertenecen al conjunto (por ejemplo, en el inciso \textit{a)}, los puntos cuya coordenada $y$ vale 4 no están incluidos en el conjunto) y líneas llenas para indicar elementos que sí pertenecen al conjunto.\par
+
+\begin{minipage}{\textwidth}
+  \centering
+  \includesvg[width = 0.8\textwidth]{tp2_sol_f1}
+\end{minipage}
+\bigskip
+
+Además de los gráficos, se solicita escribir las condiciones que deben cumplir los pares ordenados $\left(x,y\right)$ para pertenecer a cada conjunto. Una manera formal de hacer esto es escribir el conjunto por comprensión.\par
+Resolveremos detalladamente sólo el inciso \textit{a)}, donde $A = \left\{x \in \mathbb{R} / x \geq 2 \wedge x \leq 5\right\}$ y $B = \left\{x \in \mathbb{R} / x < 4\right\}$. Sabemos que cada elemento del nuevo conjunto $A \times B$ (resultado de realizar el producto cartesiano entre $A$ y $B$) es un \textbf{par ordenado} $\left(x,y\right)$ tal que $x \in A$ e $y \in B$. Acá ``le cambiamos'' el nombre a los elementos de $B$ (antes se llamaban $x$ y ahora se llaman $y$) para diferenciarlos de los elementos de $A$, haciendo hincapié en la importancia del \textit{orden} en un par ordenado. Sabemos además que los conjuntos $A$ y $B$ están incluidos en el referencial $\mathbb{R}$, ya que todos sus elementos son números reales. Sin embargo, debido a que los elementos de $A \times B$ son pares ordenados de números reales, entonces dicho conjunto está incluido en el referencial $\mathbb{R}^2$ (que se lee \textit{erre dos} y no ``erre al cuadrado'')\footnote{\textit{Notita}: de igual manera, existen los conjuntos $\mathbb{R}^3$, $\mathbb{R}^4$,...,$\mathbb{R}^n$, donde $n$ es un número natural cualquiera. Los elementos del conjunto $\mathbb{R}^n$ son colecciones de $n$ números reales ordenados, análogos a los pares ordenados (donde $n = 2$).}. Con todo esto, la expresión de este producto cartesiano por comprensión es:
+
+$$A \times B = \left\{\left(x,y\right) \in \mathbb{R}^2 / 2 \leq x \leq 5 \wedge y < 4\right\}$$
+
+Notar que las condiciones impuestas sobre las variables $x$ e $y$ se dan \textit{simultáneamente}, y por ello utilizamos el conectivo $\wedge$ (que significa ``y'').
+
+\begin{enumerate}
+	 \addtocounter{enumii}{1}
+	 \item $A \times B = \left\{\left(x,y\right) \in \mathbb{R}^2 / x \geq 4 \wedge y < 5\right\}$
+	 
+	 \item $A \times B = \left\{\left(x,y\right) \in \mathbb{R}^2 / x \leq 0 \wedge y \geq 0\right\}$
+	 
+	 \item $A \times B = \left\{\left(x,y\right) \in \mathbb{R}^2 / 2 < x \leq 6 \wedge 3 \leq y \leq 6\right\}$
+	 
+	 \item $A \times B = \left\{\left(x,y\right) \in \mathbb{R}^2 / -2 < x \leq 3 \wedge -3 \leq y \leq 3\right\}$
+	 
+	 \item $A \times B = \left\{\left(x,y\right) \in \mathbb{R}^2 / -1 \leq y \leq 1\right\}$
+\end{enumerate}
+\item[11)] Este ejercicio se resuelve de manera similar al ejercicio \textit{2)}, pero teniendo en cuenta que las condiciones están impuestas sobra una sola de las variables. Por ejemplo, en el inciso \textit{a)} se tiene $x = 0$, y esta condición define todos los puntos de la forma $\left(0,y\right)$ (\textit{este conjunto de puntos, ¿tiene algún nombre particular?})
+
+\item[14)] 
+  \begin{enumerate}
+	\item Al nivel del mar, la altura es $x = 0\;\text{m}$. La temperatura del aire es entonces $f\left(0\right) = 10\;\text{\grad C}$ (\textit{¿cómo se llama este valor, teniendo en cuenta que $f(x)$ es una función lineal?})
+
+	\item Lo que nos interesa es la altura a la cual la temperatura pasa de ser positiva a tomar valores negativos, es decir, el valor de $x$ en el que la función $y = f\left(x\right)$ cambia de signo. Para cambiar de signo, la temperatura debe pasar por el valor cero (\textit{¿por qué?}), y por lo tanto la condición es $f\left(x_0\right) = 0$, donde $x_0$ es la altura sobre el nivel del mar que estamos buscando \footnote{A veces utilizamos subíndices para referirnos a valores específicos de una variable. En este ejemplo, $x$ es la altura sobre el nivel del mar, y por lo tanto puede tomar cualquier valor real dentro de un determinado rango. Si en una cuenta queremos utilizar un valor específico de altura sobre el nivel del mar, podemos llamarlo $x_0$ para distinguirlo de la variable $x$. Lo mismo puede hacerse con la variable $y$, como en el inciso \textit{d)}.}. Entonces:
+	\begin{align*}
+	  10 - \frac{x_0}{200} &= 0 \implies\\
+      10 - \frac{x_0}{200} \mcolor{red}{+ \frac{x_0}{200}} &= 0 \mcolor{red}{+ \frac{x_0}{200}} \implies\\
+      10 &= \frac{x_0}{200} \implies\\
+      10\mcolor{red}{.200} &= \frac{x_0}{200}\mcolor{red}{.200} \implies\\
+      x_0 &= 2000 \; \text{m.s.n.m}
+	\end{align*}
+
+	\item $f\left(300\right) = 10 - \frac{300}{200} = 8.5 \; \text{\grad C}$
+
+	\item En este caso, la temperatura es $y_0 = 7\;\text{\grad C}$, y entonces:
+	\begin{align*}
+    10 - \frac{x_0}{200} &= 7 \implies \frac{x_0}{200} + 7 = 10 \implies\\
+    x_0 &= (10 - 7).200 \implies x_0 = 600\; \text{m.s.n.m} 
+   \end{align*}
+	\item A continuación se muestra el gráfico de la función, y se incluyen los puntos tabulados en el ejercicio \textit{13)}:\par
+	\begin{minipage}{\textwidth}
+		\includesvg[width = 0.6\textwidth]{tp2_sol_f2}
+	\end{minipage}
+	\bigskip
+	
+    \addtocounter{enumii}{1} % Salteo el ítem f
+	
+	\item  Sí, era posible saber que el gráfico de la función es una recta, graficando los puntos tabulados en el plano cartesiano y observando cómo están alineados (lo que hicimos en el inciso anterior).\par
+	Alternativamente, se puede calcular el cambio de temperatura correspondiente a un incremento de altura de 1 m, usando datos de diferentes partes de la tabla, y verificar que el resultado es constante. Por ejemplo, si llamamos $(x_i,y_i)$ al i-ésimo punto dado en la tabla:
+	\begin{eqnarray}
+    \frac{y_2 - y_1}{x_2 - x_1} &= \frac{9.5 - 9.95}{100 - 10} = -0.005\\
+    \frac{y_3 - y_2}{x_3 - x_2} &= \frac{9 - 9.5}{200 - 100} = -0.005\\
+    \frac{y_4 - y_3}{x_4 - x_3} &= \frac{7.5 - 9}{500 - 200} = -0.005\\
+    \frac{y_5 - y_4}{x_5 - x_4} &= \frac{5 - 7.5}{1000 - 500} = -0.005\\
+    \frac{y_6 - y_5}{x_6 - x_5} &= \frac{-2 - 5}{2400 - 1000} = -0.005
+    \end{eqnarray}
+    
+    Vemos que el resultado es constante. ¿Qué representa el valor $-0.005$ obtenido?
+
+	\item Sí, era posible observar que la función es decreciente, comparando los valores de $y$ correspondientes a valores crecientes de $x$ y verificando que se hacen cada vez menores.
+\end{enumerate}
+
+\item[21)] 
+  \begin{enumerate}
+	\item $2x - 3 = 0 \implies 2x - 3 \mcolor{red}{+ 3} = 0 \mcolor{red}{+ 3} \implies 2x = 3 \implies \frac{2x}{\mcolor{red}{2}} = \frac{3}{\mcolor{red}{2}} \implies x = \frac{3}{2}$
+	\item $x^2 - x = 0 \implies x\left(x - 1\right) = 0 \implies x \in \left\{0,1\right\}$\\
+	\\
+	En este ejercicio, en primer lugar sacamos factor común $x$, y luego resolvimos $x\left(x - 1\right)$ teniendo en cuenta que, para que este producto valga cero, alguno (o ambos) de sus factores debe valer cero. El primer factor es $x$, y vale cero, pues... cuando $x = 0$. El segundo factor es $\left(x - 1\right)$, y vale cero cuando $x = 1$. Por lo tanto, las dos soluciones (\textit{¿por qué hay dos?}) son $x_0 = 0$ y $x_1 = 1$, y este resultado lo resumimos diciendo que $x$ pertenece al conjunto $\{0,1\}$ (\textit{este conjunto, ¿está dado por extensión o comprensión?}). Hay otra manera de resolver este problema, y consiste en usar la conocida fórmula para hallar las raíces de cualquier función cuadrática (\textit{¿cómo era esa fórmula?}). Queda como ejercicio hacerlo de esa manera y verificar que la factorización es menos laboriosa (ojo, lo pudimos resolver así porque no hay término independiente).
+	\item $\frac{12}{x} - 3 = 0 \implies \frac{12}{x} = 3 \implies 12 = 3x \implies x = \frac{12}{3}$
+	\item $\frac{x + 2}{x^2 + 1} = 0 \implies x + 2 = 0 \implies x = -2$\\
+	\\
+	En este ejercicio, tenemos inicialmente un cociente igualado a cero. Para que esto ocurra, basta con que el numerador sea igual a cero y, de hecho, \textbf{el denominador no debe valer cero} (\textit{¿por qué?}). En este caso, el denominador nunca puede ser igual a cero (\textit{¿por qué?}), y por lo tanto el resultado final es $x = -2$. No obstante, en general si el numerador tiene raíces que anulen también al denominador, \textbf{se las debe excluir de la solución} (ya que la función no está definida en esos valores de $x$). Dicho de otra manera, es una buena práctica determinar primero el dominio de la función y luego hallar sus raíces.
+	
+\end{enumerate}
+\item[22)] NOTA: El ejercicio a) corresponde al gráfico de arriba a la izquierda, y las letras avanzan de izquierda a derecha en dos filas (la segunda fila empieza por el inciso e)).\par 
+Resolveremos aquí detalladamente sólo el inciso b). En primer lugar, debe quedar claro que es imposible graficar una curva que se extienda hasta el infinito... y algunas veces esto se ``aclara'' en el gráfico (y otras no). La forma de aclararlo es usando una flecha en uno o ambos extremos de la curva (pero muchas veces esto no se hace y se sobreentiende). En este ejercicio, la curva que está a la izquierda de la línea vertical punteada tiene, en su extremo izquierdo, una flecha que apunta hacia la izquierda. Esto se interpreta como que la curva ``sigue hacia la izquierda hasta el infinito (negativo)'', es decir, la función está definida para valores de $x$ tan negativos como queramos. Ojo: es \textbf{la variable independiente} la que toma valores tan negativos como queramos; la función, a medida que $x$ se hace más y más negativo, se acerca cada vez más al valor $y = 0$, pero nuna lo toca. Por otro lado, el extremo derecho de esa misma curva tiene un punto en lugar de una flecha. Esto significa que ``la curva termina ahí'', tanto para $x$ como para $y$, en el punto $(0.5,3)$ (aproximadamente, mirando el gráfico). Algo similar ocurre con la curva que está a la derecha de la línea vertical punteada. En este caso, el extremo izquierdo tiene una flecha que apunta hacia abajo, indicando que \textbf{la función} (es decir, la variable $y$) toma valores tan negativos como queramos a medida que $x$ se acerca al valor 1 (por la derecha), sin tocarlo. Finalmente, el extremo derecho de esta curva termina en un punto, de coordenadas $(4,-0.2)$ (aproximadamente). En este ejercicio, no importa mucho el valor exacto de las coordenadas de los puntos marcados, ya que la escala no nos deja ser tan exactos (mala nuestra). De esta manera, tenemos:
+
+\begin{align*}
+\text{Dom}(f) &= \left\{x \in \mathbb{R} / x \leq 0.5 \lor 1 < x \leq 4\right\}\\
+\text{Im}(f) &= \left\{y \in \mathbb{R} / y \leq -0.2 \lor 0 < y \leq 3\right\}
+\end{align*}
+
+Acá utilizamos el símbolo $\lor$, que significa ``o''. Otra forma de escribir los conjuntos dominio e imagen es usando intervalos o uniones de intervalos (recordar que el parántesis indica que el extremo no pertenece al conjunto, y el corchete indica que sí pertenece):
+
+\begin{align*}
+\text{Dom}(f) &= (-\infty,0.5] \cup (1,4]\\
+\text{Im}(f) &= (-\infty,-0.2] \cup (0,3]
+\end{align*}
+
+Siguiendo con la consigna, notamos que la función no tiene ceros (\textit{¿cómo vemos esto en el gráfico?}). Por otro lado, los conjuntos de positividad y negatividad son:
+
+\begin{align*}
+\text{C}_{+}(f) &= (-\infty,0.5]\\
+\text{C}_{-}(f) &= (1,4]
+\end{align*}
+
+Recordemos que $C_{+}(f)$ es el conjunto de valores de la variable \textbf{independiente} ($x$) para los cuales la variable dependiente ($y$) es positiva, y lo contrario para el conjunto de negatividad.\par
+Ahora daremos las respuestas de los demás incisos.
+
+\begin{enumerate}
+	\item 
+	$\text{Dom}(f) = \left\{x \in \mathbb{R} / -3.5 \leq x \leq 4\right\}$\\
+	$\text{Im}(f) = \left\{y \in \mathbb{R} / -4 \leq y \leq 3\right\}$\\
+	$\text{C}_{+}(f) = (-3,0)$\\
+	$\text{C}_{-}(f) = [-3.5,-3) \cup (0,4)$ 	\addtocounter{enumii}{1} % Salteo el ítem b
+	
+	\item 
+	$\text{Dom}(f) = (-\infty,-2) \cup (-2,2) \cup (2,+\infty)$\\
+	$\text{Im}(f) = \mathbb{R}$\\
+	$\text{C}_{+}(f) = (-2.5,-2) \cup (-2,-1.2) \cup (1.2,2)$\\
+	$\text{C}_{-}(f) = (-\infty,-2.5) \cup (-1.2,1.2) \cup [2,+\infty)$
+	
+	\item 
+    $\text{Dom}(f) = \mathbb{R}$\\
+    $\text{Im}(f) = \left\{y \in \mathbb{R} / y \geq -3\right\}$\\
+	$\text{C}_{+}(f) = (-0.7,1) \cup (2.3,+\infty)$\\
+    $\text{C}_{-}(f) = (-\infty,-0.7) \cup (1,2.3)$\\
+    
+    Ojo, en este ejercicio no hay flechas ni puntos en los extremos de la curva, y lo más común en estos casos es interpretar que hay flechas. Por otro lado, nada nos indica que la función vuelva a bajar a la izquierda de la parte graficada, por lo que interpretamos que sigue subiendo (hasta el infinito). Por eso el valor mínimo de la función es $-3$.
+    
+    \item 
+    $\text{Dom}(f) = [-3,+\infty)$\\
+    $\text{Im}(f) = [-3,3]$\\
+	$\text{C}_{+}(f) = [-3,-1.2)$\\
+	$\text{C}_{-}(f) = (-1.2,+\infty)$
+
+    \item
+    $\text{Dom}(f) = \left\{x \in \mathbb{R} / -4 \leq x \leq 5\right\}$\\
+    $\text{Im}(f) = \left\{y \in \mathbb{R} / -4 \leq y \leq 5\right\}$\\
+    $\text{C}_{+}(f) = [-4,-3.2) \cup (-1,1.2) \cup (4.8,5]$\\
+    $\text{C}_{-}(f) = (-3.2,-1) \cup (1.2,4.8)$
+    
+    \item 
+	$\text{Dom}(f) = [-3,4]$\\
+	$\text{Im}(f) = [-2,2.5]$\\
+	$\text{C}_{+}(f) = (-3,1.2) \cup (2.5,4)$\\
+	$\text{C}_{-}(f) = (1.2,2.5)$
+	
+	\item
+	$\text{Dom}(f) = \left\{x \in \mathbb{R} / x > -5 \land x \neq -2 \land x \neq 2\right\}$\\
+	$\text{Im}(f) = \mathbb{R}$\\
+	$\text{C}_{+}(f) = (-5,-3.5) \cup (-2,-1.5) \cup (1.5,2) \cup (2,2.6)$\\
+	$\text{C}_{-}(f) = (-3.5,-2) \cup (-1.5,1.5) \cup (2.6,+\infty)$
+\end{enumerate}
+
+\item[24)] Resolveremos primero el inciso d) (ver orden de las letras en la solución del ejercicio 22). Recordemos que el conjunto\footnote{En algunos textos se puede encontrar el término \textit{intervalo de positividad}, pero en realidad no necesariamente es un intervalo (puede ser una unión de intervalos). Por ello, el término más correcto es \textit{conjunto de positividad}.} de positividad (que denotaremos $\text{C}_{+}(f)$) es el intervalo o la unión de intervalos de la variable \textbf{independiente} ($x$) donde la función es creciente, y lo contrario para el conjunto de negatividad. Pero, ¿qué significa que la función es creciente en un intervalo? De forma coloquial, significa que la función aumenta su valor a medida que aumenta $x$ en dicho intervalo (\textit{¿y si la función decrece?}). Siguiendo estas definiciones, se tiene:
+ 
+$\text{C}_c(f) = (-1.5,0) \cup (2,3) \cup (4,+\infty)$\\
+$\text{C}_d(f) = (-\infty,-1.5) \cup (0,2) \cup (3,4)$
+
+Notar que los extremos de los intervalos no están incluidos. \textit{¿Por qué?}.\par
+Ahora van las respuestas de los demás incisos.
+
+\begin{enumerate}
+	\item $\text{C}_c(f) = (-3.5,-2) \cup (2,4)$\\
+	$\text{C}_d(f) = (-2,2)$
+	
+	\item $\text{C}_c(f) = (-\infty,0.5) \cup (1,4)$\\
+	$\text{C}_d(f) = \varnothing$
+
+	\item $\text{C}_c(f) = (-\infty,-2) \cup (0,2) \cup (2,+\infty)$\\
+	$\text{C}_d(f) = (-2,0)$ \addtocounter{enumii}{1}
+
+	\item $\text{C}_c(f) = (0,+\infty)$\\
+	$\text{C}_d(f) = (-3,0)$
+	
+	\item $\text{C}_c(f) = (-2,0) \cup (3,5)$\\
+	$\text{C}_d(f) = (-4,-2) \cup (0,3)$
+
+	\item $\text{C}_c(f) = (-3,-2) \cup (-1,0) \cup (2,3)$\\
+	$\text{C}_d(f) = (-2,-1) \cup (0,2) \cup (3,4)$
+	
+	\item $\text{C}_c(f) = (0,2) \cup (4,+\infty)$\\
+	$\text{C}_d(f) = (-5,-2) \cup (-2,0) \cup (2,4)$
+\end{enumerate}
+\item[27)] 
+\begin{enumerate}
+	\item[I)]
+	Máximo local: en $x = -2$.\\
+	Máximo absoluto: no hay.\\
+	Mínimos locales: en $x = 0$ y $x = 2$.\\
+	Mínimo absoluto: no hay.
+	
+	\item[II)]
+	Máximo local: en $x = -2$.\\
+	Máximo absoluto: no hay.\\
+	Mínimo local: en $x = -1$.\\
+	Mínimo absoluto: no hay.
+	
+	\item[III)]
+	Máximo local: en $x = 4$.\\
+	Máximo absoluto: en $x = 4$.\\
+	Mínimo local: en $x = -2$.\\
+	Mínimo absoluto: en $x = -2$.\\
+	
+	\textit{Notita}: acá puede haber opiniones variadas. En general, la definición de extremo relativo permite que éstos ocurran en los ``bordes'' del dominio (en este ejercicio, dichos ``bordes'' son $x = -2$ y $x = 4$). Sin embargo, en algunos textos de matemática es posible encontrar una definición ligeramente diferente, donde los extremos relativos sólo pueden ocurrir en el interior del dominio (es decir, en cualquier punto que no esté en el borde).
+	
+	\item[IV)]
+	Máximos locales: en $x = 1$ y $x = 4$.\\
+	Máximo absoluto: no hay.\\
+	Mínimos locales: en $x = -4$ y $x = 3$.\\
+	Mínimo absoluto: en $x = 3$.\\
+\end{enumerate}
+\end{enumerate}
+
+\end{document}
