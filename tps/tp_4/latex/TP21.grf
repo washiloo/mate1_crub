@@ -1,0 +1,65 @@
+;This file was created by Graph (http://www.padowan.dk)
+;Do not change this file from other programs.
+[Graph]
+Version = 4.4.2.543
+MinVersion = 2.5
+OS = Windows NT 6.2 
+
+[Axes]
+xMin = -10
+xMax = 10
+xTickUnit = 1
+xGridUnit = 1
+yMin = -10
+yMax = 10
+yTickUnit = 2
+yGridUnit = 2
+AxesColor = clBlue
+GridColor = 0x00FF9999
+ShowLegend = 0
+Radian = 1
+
+[Func1]
+FuncType = 0
+y = ABS(x+2)
+Visible = 0
+Color = clRed
+Size = 3
+
+[Label1]
+Placement = 0
+Pos = 1.58069883527454;7.14738510301109
+Text = {\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang3082{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}{\\f1\\fnil Times New Roman;}}\n{\\colortbl ;\\red0\\green0\\blue0;}\n\\viewkind4\\uc1\\pard\\cf1\\lang11274\\f0\\fs48 f(x) = x+2\\lang3082\\f1\\fs24\\par\n}\n
+BackgroundColor = clNone
+ShowInLegend = 0
+
+[Func2]
+FuncType = 0
+y = x+2
+Color = clGreen
+Size = 3
+
+[Label2]
+Placement = 0
+Pos = 1.64725457570715;7.52773375594295
+Text = {\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang3082{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\n{\\colortbl ;\\red0\\green0\\blue0;}\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs48 g(x) = x+2\\par\n}\n
+BackgroundColor = clNone
+Visible = 0
+ShowInLegend = 0
+
+[Label3]
+Placement = 0
+Pos = -6.93843594009983;6.76703645007924
+Text = {\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang3082{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\n{\\colortbl ;\\red0\\green0\\blue0;}\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs48 g(x) = -(x+2)\\par\n}\n
+BackgroundColor = clNone
+Visible = 0
+ShowInLegend = 0
+
+[Data]
+TextLabelCount = 3
+FuncCount = 2
+PointSeriesCount = 0
+ShadeCount = 0
+RelationCount = 0
+OleObjectCount = 0
+

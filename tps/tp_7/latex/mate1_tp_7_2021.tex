@@ -1,0 +1,576 @@
+%no borrar PREAMBULO
+\documentclass[12pt]{article}
+
+\usepackage[top=3 cm, bottom=2.5  cm, left=2.5 cm, right=2.5 cm]{geometry}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\usepackage[hidelinks]{hyperref} %esta opción saca las cajas de colores de los hiperlinks
+
+\fancyfoot[C]{\thepage }  %numera las páginas
+
+\usepackage[utf8]{inputenc}
+
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{xcolor}
+\usepackage{fancyvrb}
+\newcommand\verbbf[1]{\textcolor[rgb]{0,0,1}}%comando para colorear el texto en verbatim
+
+%\linespread{1} %por si queremos achicar el espacio entre lineas
+
+\usepackage{tabularx,booktabs}
+\usepackage{graphicx}
+\usepackage{svg} % Para poder incluir gráficos vectoriales en formato .svg
+\usepackage{float} %para que las figuras puedan ponerse en cualquier lado
+\usepackage{longtable} % Para tablas que abarcan más de una página
+
+\usepackage{subcaption}
+\usepackage{layout}
+\usepackage{multicol}  %para escribir en columnnas 
+\usepackage{textcomp}
+\usepackage{natbib}
+\usepackage{tikz}
+\usepackage{multirow} %para cambiar el alto de una fila en una tabla
+\tikzset{
+  connect/.style = { dashed, gray }
+}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.8}
+\usepackage[english ,spanish]{babel}
+\usepackage{latexsym}
+\usepackage{verbatim}
+
+%\usepackage{alltt}
+\usepackage{indentfirst}
+
+\usepackage{fancybox, calc} 
+
+\usepackage[flushmargin]{footmisc} %para alinear las notas de página
+
+\usepackage{url}
+\usepackage{advdate}
+\usepackage{wrapfig}
+\usepackage{amsthm}
+\usepackage[inline]{enumitem} %para hacer listas en una linea, los mismos comandos con *
+\newtheorem*{myteo}{Teorema} % la * es para no numerarlos
+\newtheorem*{myexample}{Ejemplo}
+\newtheorem*{myprop}{Proposición}
+\newtheorem*{mylem}{Lema}
+\theoremstyle{definition}
+\newtheorem*{mydef}{Definición}
+\newtheorem{ejer}{Ejercicio}
+\newtheorem*{mydefs}{Definiciones}
+%\theoremstyle{remark}
+\newtheorem*{myobs}{Observación}
+\newtheorem*{remark}{Importante}
+\newtheorem*{myteo2}{Teorema}
+
+\renewcommand{\baselinestretch}{1}  %interlineado
+
+\addto\captionsspanish{%
+  \renewcommand{\figurename}{Figura}%
+}
+
+\newcommand\myText[1]{\text{\scriptsize\tabular[t]{@{}l@{}}#1\endtabular}}
+\addto\captionsspanish{%
+  \renewcommand{\tablename}{Tabla}%
+}
+
+\def \ds {\displaystyle} %define un comando abreviado  
+\def\com{“R”}
+
+\usepackage{hyperref}%para referencias de internet con link!
+\newcommand*{\fullref}[1]{\hyperref[{#1}]{ \nameref*{#1}}}
+%comando \fullref para que ademas del número de capitulo, sección etc. escriba el título del capitulo, sección o lo que sea a lo que estamos haciendo referencia
+
+\newcommand\comentario[1]{\textcolor{red}{#1}}%comentarios en el pdf
+
+\interfootnotelinepenalty=10000 %previene que se pasen a otra página las notas de pie
+\raggedbottom 
+\addtolength{\topskip}{0pt plus 10pt}
+\addtolength{\footnotesep}{0.1mm}
+
+\VerbatimFootnotes%para poder usar Verbatim en las notas de pie
+
+\begin{document}
+
+\fancyhf{}
+\pagestyle{fancy}
+\lhead{Departamento de Matem\'{a}tica\\Universidad Nacional del Comahue}
+\rhead{Matem\'{a}tica 1\\ Licenciatura en Ciencias Biol\'{o}gicas}
+
+%HASTA ACA 
+
+\begin{centering}
+\Large{\textbf{Trabajo Práctico N° 7}}\\
+\large{\textbf{Continuidad de funciones}}\\
+\end{centering}
+\vspace{1cm}
+
+
+
+% Ejercicios y problemas
+
+% Definición de función continua
+\fbox{ \parbox{0.98\linewidth}{
+\noindent
+\begin{mydef}  \textbf{Continuidad de una función en un punto.}\\
+Se dice que $f(x)$ es contunua en el punto de coordenada $x = a$, si se cumplen las tres siguientes condiciones:
+\begin{enumerate}
+\item Existes la imagen de  $x = a$, es decir, existe $f(a)$
+\item Existe y es finito el límite de $f(x)$, cuando $x$ tiende a $x=a$, es decir, $\lim\limits_{x \to a} f(x)$ es finito,
+\item Estos dos valores, coinciden, es decir: $\lim\limits_{x\to\ a} f(x) = f(a)$ 
+\end{enumerate}
+\end{mydef}
+}}
+
+\begin{enumerate}
+%4
+\item Considerar una función $f(x)$ y:
+\begin{enumerate}
+\item Explicar la definición anterior
+\item Dar un ejemplo gráfico de una función continua en $x=1$.
+\item Dar un ejemplo analítica de una función continua en $x=2$
+\end{enumerate}
+
+%3
+\item Pensando en variables de uso cotidiano (o conocido):
+\begin{enumerate}
+\item La posición y la velocidad de un móvil en función del tiempo, ¿son funciones continuas? ¿Y la aceleración? 
+\item Dar ejemplos de funciones continuas y no continuas cuyas variables tengan significado físico, químico, biológico, etc., indicando en cada caso cuál es la variable independiente y cuál la variable dependiente.
+\end{enumerate}
+
+%5 
+\item Cuando una función no con alguna de las condiciones para ser continua en un punto se llama \textbf{discontinua} en ese punto.
+\begin{enumerate}
+\item Explicar en qué casos una función es discontinua en un punto $x = a$
+\item Explicar las condiciones que deben cumplirse para que una función tenga:
+\begin{itemize}
+\item una discontinuidad evitable en $x = a$
+\item una discontinuidad esencial de salto finito en $x = a$
+\item una discontinuidad esencial de salto infinito en $x = a$
+\end{itemize}
+\item  Proponer ejemplos gráficos de funciones que por distintas razones sean discontinuas en x = 0
+\item  Lo mismo con ejemplos analíticos 
+\item  Explicar cómo (y dónde) podemos buscar los puntos de discontinuidad de una función y, una vez que los identificamos, cómo hacemos para clasificarlo, es decir, decidir de qué tipo de discontinuidad se trata.
+\end{enumerate}
+
+%6
+\item  Dar el gráfico de una función que satisfaga las siguientes condiciones (todo en una sola función):
+\begin{enumerate}
+\item  En $x = 0$  sea discontinua y $f(0) = 0$.
+\item  En $ x = 3$ tenga una discontinuidad esencial de salto infinito.
+\item  En $x = 5$  tenga una discontinuidad esencial de salto finito.
+\item  En $x = 7$ no esté definida y  $\lim \limits_{x \to 7} f(x) = 2$ 
+\item  $\lim \limits_{x \to -4} f(x) \neq f(-4)$ 
+\end{enumerate}
+
+%7
+\item La función “Parte entera de x”, se define de la siguiente manera:
+\begin{align*}
+f:& \mathbb{R} \to \mathbb{N}\\
+& x \to [x]
+\end{align*}
+\noindent
+de manera que si $a \leq x < a+1$. entonces $f(x) = [x]=a$. \\
+Por ejemplo: $[2,56] = 2$, $[0,235] = 0$, $[3] = 3$  o $[-2,55] = -3$  Es decir, la parte entera de un número real $x$ es el número entero inmediato a la izquierda de ese número $x$, a menos que $x$ sea entero, en tal caso su parte entera es el mismo $x$.
+\begin{enumerate}
+\item Graficar $f(x) = [x]$
+\item  Analizar cuáles y de qué tipo son los puntos de discontinuidad de $f(x)$.
+\end{enumerate}
+
+%8
+\item Para la siguiente función:
+\begin{equation*}
+g(x) = % \qquad \qquad
+\begin{cases} 
+ -x & \text{  si   } x \leq 0 \\
+\text{...........} & \text{si  }  0 < x < 1\\
+x^2-x+2 & \text{  si   } x \geq 1 \\
+\end{cases} % \qquad \qquad
+\end{equation*}
+\begin{enumerate}
+\item ¿Cómo se puede definir $g(x)$ en el intervalo $(0,1)$ para que resulte una función continua en todo   $\mathbb{R}$?
+\item  Graficarla
+\end{enumerate}
+
+
+%9
+\item Proponer ejemplos analíticos de funciones que cumplan las siguientes condiciones y esbozar, en cada caso, un gráfico (se sugiere pensar en funciones definidas a trozos):
+\begin{enumerate}
+\item $f(x)$ tiene  una discontinuidad evitable en $x = -1$, una discontinuidad de salto finito en $x = 1$ y una discontinuidad de salto infinito en en $x = 3$ .
+\item $f(x)$ tiene límite $2$ cuando $x$ tiende a $-1$  por la izquierda, tiene límite $5$ cuando $x$ tiende a $1$ por la derecha y no tiene puntos de discontinuidad.
+\item $f(x)$ tiene límite finito cuando $x$ tiende a $-1$ por la derecha, tiene límite finito cuando $x$ tiende a $1$ por la izquierda y tiene en esos dos puntos la discontinuidad es evitable.
+\item Lo mismo que el caso anterior considerando que $f(x)$ está obligada a tener dominio en  $\mathbb{R}$  (es decir, todos los puntos tienen imagen).
+\end{enumerate}
+
+
+\fbox{ \parbox{0.98\linewidth}{
+\noindent
+\begin{myteo}
+Si $f$ y $g$ son funciones continuas en $x = a$, entonces:
+\begin{itemize}
+\item La suma $f+g$ es continua en en $x = a$
+\item El producto por una constante $k.f$ es continuo en $x = a$
+\item El producto $f.g$ es continuo  en $x = a$
+\item El cociente $\frac{f}{g}$ es continuo  en $x = a$ siempre que $g(a) \neq 0$
+\end{itemize}
+\end{myteo}
+}}
+\vspace{0.3 cm}
+
+
+%10
+\item Proponer un ejemplo de dos funciones $f(x)$ y $g(x)$ que sean continuas en $x = 2$ tal que $g(2) \neq 0$. 
+\begin{enumerate}
+\item Hallar:
+\begin{multicols}{3}
+\begin{itemize}
+\item $f(x) + g(x)$
+\item $f(x) - g(x)$
+\item $f(x).g(x)$
+\item $\frac{f(x)}{g(x)}$ 
+\item $2.f(x) + 5.g(x)$
+\end{itemize}
+\end{multicols}
+\item Según el Teorema anterior, ¿qué puede decirse de la continuidad de las funciones halladas en $x=2$?
+\item Verificar en cada caso que se cumple la definición de continuidad de una función en un punto.
+\item ¿Podría afirmarse que $\frac{f(x)}{g(x)}$  es continua si $g(2) = 0$?¿ Por qué?
+\end{enumerate}
+
+
+\fbox{ \parbox{0.98\linewidth}{
+\noindent
+\begin{myteo}
+Si $f$son funciones continuas en $x = a$, y  y $g$  es continua en $f(a)$ entonces, la función compuesta $g(f(x))$ es continua en $x = a$
+\end{myteo}
+}}
+\vspace{0.3 cm}
+
+\fbox{ \parbox{0.98\linewidth}{
+\noindent
+\begin{mydef}  \textbf{Continuidad en un intervalo cerrado}\\
+\noindent
+Se dice que una función $f(x)$ es continua en el intervalo cerrado $[a, b]$ si cumple con las siguientes tres condiciones:
+\begin{enumerate}
+\item $f(x)$ es continua a derecha en $x = a$,  es decir,  $\lim_{x \to a^{+}} f(x) = f(a)$
+\item $f(x)$ es continua a izquierda en $x = b$,  es decir,  $\lim_{x \to b^{-}} f(x) = f(b)$
+\item f(x) es continua en cada punto del  intervalo $(a,b)$, es decir, $f(x)$ no presenta discontinuidades en $(a,b)$
+\end{enumerate}
+\end{mydef}
+}}
+\vspace{0.3 cm}
+
+%11
+\item Explicar la definición e interpretar gráficamente y dDar un ejemplo gráfico y un ejemplo analítico de una función continua en $[-1,1]$
+ 
+%12
+\item Cuando una función no con alguna de las condiciones para ser continua en un intervalo cerraro se llama \textbf{discontinua} en dicho intervalo.
+\begin{enumerate}
+\item Explicar en qué casos una función es discontinua en un intervalo cerrado $[a,b]$
+\item Explicar las condiciones que deben cumplirse para que una función sea:
+\begin{itemize}
+\item discontinua a derecha en $x = a$
+\item discontinua a izquierda en $x = b$
+\item discontinua en el interior del intervalo, es decir en $(a,b)$
+\end{itemize}
+\end{enumerate}
+\vspace{0.2 cm}
+
+\fbox{ \parbox{0.98\linewidth}{
+\noindent
+\begin{myteo}
+Si $f(x)$ es continua en un intervalo cerrado $[a, b]$, lo es en cualquier intervalo cerrado o abierto incluido en $[a, b]$.
+\end{myteo}
+}}
+\vspace{0.3 cm}
+%13
+\item Proponer un ejemplo una función $f(x)$ tal que sea continua en el intervalo cerrado $[-2,2]$ y marcar cualquier intervalo cerrado incluido en $[-2,2]$. Verificar que se cumple la continuidad de $f$ en el intervalo propuesto. Explicar.
+\vspace{0.3 cm}
+
+\fbox{ \parbox{0.98\linewidth}{
+\noindent
+\begin{myteo}{\textbf{Teorema de Bolzano}}\\
+Si $f(x)$ es continua en un intervalo cerrado $[a, b]$ y el signo de $f(a)$ es distinto del signo de $f(b)$, entonces existe un valor $c \in  (a,b)$ tal que $f(c) = 0$
+\end{myteo}
+}}
+\vspace{0.2 cm}
+
+%14
+\item  Explicar el significado del teorema anterior e interpretar gráficamente. ¿Por qué es posible asegurar que $c \in (a, b)$ y no que $c \in [a, b]$? 
+
+%15
+\item  Proponer un ejemplo analítico de una función $f(x)$ tal que sea continua en el intervalo cerrado $[-2,2]$, tal que el signo de $f(-2)$ sea distinto del signo de $f(2)$.
+ \begin{enumerate}
+\item ¿Qué es posible afirmar, a partir del teorema anterior, para esta función?
+\item  Encontrar ese valor de $c \in (-2,2)$ tal que $f(c) = 0$
+\end{enumerate}
+
+%16
+\item  Consideremos una función $f(x)$ continua en un  intervalo cerrado $[a,b]$, tal que el signo de $f(a)$ sea distinto del signo de $f(b)$.
+ \begin{enumerate}
+\item  ¿Se puede asegurar que existe una raíz de la función? ¿En qué intervalo?
+\item  ¿Se puede asegurar lo mismo si $f(x)$ fuera continua en $(a, b)$
+ \item  Ejemplificar gráficamente.
+\end{enumerate}
+
+
+\fbox{ \parbox{0.98\linewidth}{
+\noindent
+\begin{myteo}{\textbf{Teorema del Valor Intermedio}}\\
+Sea $f(x)$ continua en un intervalo cerrado $[a, b]$ tal que $f(a) \neq f(b)$. Si $K$ es un número real que se encuentra entre $f(a)$ y $f(b)$ (es decir, $f(a) < K < f(b)$ o $f(b) < K <  f(a)$), entonces existe un valor $c \in  (a,b)$ tal que $f(c) = K$
+\end{myteo}
+}}
+\vspace{0.3 cm}
+
+%17
+\item  Explicar el significado del Teorema del Valor Intermedio (TVI) e interpretar gráficamente. Luego:
+ \begin{enumerate}
+\item  Proponer un ejemplo gráfico de  una función $f(x)$ que sea continua en el intervalo cerrado $[-2,2]$, tal que $f(-2) < f(2)$. 
+\item De acuerdo a la función propuesta, ¿entre qué valores es posible elegir el $K$ al que hace referencia el TVI?
+\item  Elegir $K$ tal que $f(-2) < K < f(2)$
+\item ¿Qué asegura el TVI para esta función y este $K$ elegido?
+\item Encontrar ese valor de $c \in (-2,2)$ tal que $f(c) = K$
+\end{enumerate}
+ 
+%18
+\item Proponer ejemplos gráficos de funciones que por distintas razones no sean continuas en el intervalo cerrado $[a, b]$  el las que  tal que $f(a) \neq f(b)$, donde se demuestre que si no se cumple la condición de continuidad en el intervalo cerrado, la existencia del valor $c \in (a, b)$ tal que $f(c) = K$ no está garantizada.
+
+%19
+\item Considerar la siguiente afirmación:\\
+Sea la función $f(x)$ continua en el intervalo cerrado $[-2,2]$ tal que $f(-2) \neq f(2)$. Entonces, para cualquier valor $c \in (-2,2)$, siempre se tendrá $f(-2) < f(c) < f(2)$ o $f(2) < f(c) < f(-2)$
+ \begin{enumerate}
+\item  Explicar lo que dice la afirmación
+\item Interpretalar gráficamente
+\item  ¿Dice lo mismo que el TVI?
+\item ¿Es verdadera esta afirmación? ¿por qué?
+\item Mostrar ejemplos que confirmen la respuesta al ítem anterior.
+\end{enumerate}
+
+%20
+\item Proponer un ejemplo analítico una función $f(x)$ continua en el intervalo cerrado $[0,4]$, tal que $f(0) > f(4)$. 
+
+De acuerdo a la función propuesta:
+ \begin{enumerate}
+\item ¿Entre qué valores es posible elegir el $K$ al que hace referencia el TVI?
+\item Elegir un valor de $K$ tal que $f(4) < K < f(0)$. ¿Qué asegura el TVI para esta función y este $K$ elegido?
+\item Encontrar ese valor de $c \in (0,4)$ tal que $f(c) = K$.
+\end{enumerate}
+
+%21
+\item Se sabe que a las 14 hs la temperatura de un objeto era de $25\circ$ y a las 17 hs era de $37\circ$.
+ \begin{enumerate}
+\item La función temperatura de un objetoen función del tiempo, ¿es continua? ¿Por qué??
+\item ¿Qué valores se puede asegurar que tomó la temperatura de ese objeto entre las 14 y las 17 hs?
+\item ¿Es posible que el objeto haya tenido en algún momento 30°? ¿Podemos asegurarlo? ¿Por qué?
+\item ¿Es posible que el objeto haya tenido en algún momento 43°? ¿Podemos asegurarlo?, ¿Por qué?
+\item A las 16 hs, ¿es posible que el objeto haya tenido algún valor de temperatura entre 25° y 37°? ¿Podemos asegurarlo?, ¿por qué?
+\end{enumerate}
+
+%22
+\item  En un estudio, se midió la evolución del peso de las truchas como función del tiempo. Se encontró que el peso de una trucha al año de vida era de 250 g y que a los tres años alcanzó los 2430 g.
+ \begin{enumerate}
+\item La función peso de la trucha en función del tiempo, ¿es continua? ¿Por qué??
+\item ¿Qué valores se puede asegurar que asumió el peso de la trucha entre el año y los tres años?
+\item ¿Es posible que la trucha haya pesado en algún momento entre el año y los tres años 2500grs? ¿Podemos asegurarlo? ¿Por qué?
+\item ¿Es posible que la trucha haya pesado en algún momento entre el año y los tres años 1800grs? ¿Podemos asegurarlo? ¿Por qué?
+\item ¿Es posible asegurar que a los dos y ocho meses años la trucha pesaba algún valor entre 250grs y 2430 gr? ¿Podemos asegurarlo?.¿Por qué?
+\item Del problema y bajo lo expuesto en el TVI, ¿qué cosas puede asegurarse que ocurrirán necesariamente? 
+\end{enumerate}
+
+
+\fbox{ \parbox{0.98\linewidth}{
+\noindent
+\begin{myteo}{\textbf{Teorema del  Mínimo y Máximo Valor}}\\
+Sea $f(x)$ continua en un intervalo cerrado $[a, b]$, entonces $f(x)$ alcanza en $[a, b]$ un valor mínimo $m$ y un valor máximo $M$.
+\end{myteo}
+}}
+\vspace{0.3 cm}
+
+%23
+\item  Explicar el significado del Teorema del  Mínimo y Máximo Valor (TMMV) e interpretar gráficamente. Luego proponer ejemplos gráficos de funciones $f(x)$ que sean continua en el intervalo cerrado $[-1,5]$ y señalar en cada caso el mínimo y el máximo valor de cada función en dicho intervalo.
+
+%24
+\item Proponer ejemplos gráficos de funciones que por distintas razones no sean continuas en el intervalo cerrado [a, b] donde se demuestre que si no se cumple la condición de continuidad en el intervalo cerrado, la existencia del valor mínimo $m$ y el máximo $M$ previstos por el TMMV no está garantizada.
+
+%25
+\item Si $f(x)$ continua en $[a, b]$, ¿es también esacotada en ese intervalo? Justificar y dar ejemplos gráficos.
+
+% Definición de extremos absolutos
+\fbox{ \parbox{0.98\linewidth}{
+\noindent
+\begin{mydef}  \textbf{Extremos absolutos de una función}\\
+Sea $x_0 \in  \text{Dom }f$. Se dice que la función $f(x)$ alcanza en $x_0$ un máximo (o mínimo) \textbf{absoluto} si $f(x_0) \geq f(x)$ para todo $x$ perteneciente al dominio de $f$ (análogamente $f(x_0)\leq f(x)$ para el caso del mínimo). Estos puntos se llaman \textbf{extremos absolutos} de $f(x)$. 
+\end{mydef}
+}}
+
+%26
+\item 
+\begin{enumerate}
+\item La función $f(x) = e^{x}$ ¿tiene extremos absolutos? ¿ Y $f(x) = \frac{1}{x}$?
+\item Las funciones cuadráticas (cuyos gráficos son parábolas) ¿tienen máximos o mínimos absolutos? ¿Dónde? 
+\item En la expresión general de la función de segundo grado, ¿de qué coeficiente depende que el extremo sea máximo o mínimo? Explicar.
+\end{enumerate}
+\vspace{0.3 cm} 
+% Definición de extremos relativos
+\fbox{ \parbox{0.98\linewidth}{
+\noindent
+\begin{mydef}  \textbf{Extremos relativos  de una función}\\
+Sea $x_0 \in  \text{Dom }f$. Se dice que la función $f(x)$ alcanza en $x_0$ un máximo (o mínimo) \textbf{relativo} si $f(x_0) \geq f(x)$  para todo $x$ en un entorno de  $x_0$ (análogamente $f(x_0)\leq f(x)$ para el caso del mínimo).
+\end{mydef}
+}}
+
+
+%27
+\item Analizar el valor de verdad de las siguientes afirmaciones. Si son verdaderas, intentar argumentar por qué lo son, y si son falsas, mostrar contraejemplos
+\begin{enumerate}
+\item Todo extremo (máximo o mínimo) absoluto es también relativo.
+\item Todo extremo relativo es también absoluto.
+\item Si $f(x)$ es continua en $[a, b]$, tiene un máximo y un mínimo relativos en ese intervalo.
+\item Si $f(x)$ es continua en $[a, b]$, tiene un máximo y un mínimo absolutos en ese intervalo.
+\item Si $f(x)$ es continua en $[a, b]$, puede tener más de un máximo o un mínimo relativos en ese intervalo.
+\item Existen funciones que cumplen que todos los puntos de su dominio son  simultáneamente máximos y mínimos absolutos y relativos.
+\end{enumerate}
+
+%28
+\item Graficar funciones continuas en $(0,1)$ tal que:
+\begin{enumerate}
+\item No tenga valores máximos allí.
+\item No tenga valores mínimos allí.
+\item Tenga máximo en x = 1 pero no tenga mínimo.
+\end{enumerate}
+%29
+\item Si en el ejercicio anterior,  la función fuera continua en $[0,1]$, ¿podría elegirse una función que satisfaga las mismas condiciones? Justificar.
+
+%30 (ex 29)
+\item Sea $f(x)$ definida como sigue:  
+\begin{equation*}
+f(x) =
+\begin{cases} 
+ x^{2} & \text{  si   } x < 1 \\
+Ax-3 & \text{  si   } x \geq 1 \\
+\end{cases} 
+\end{equation*}
+¿Cuánto debe valer $A$ para que la función sea continua en $x = 1$?
+
+
+%31 (ex 30)
+\item En la siguiente función dar las condiciones necesarias y suficientes para que sea continua en $x = 1$ y  en $x = 2$. Graficar.
+
+\begin{equation*}
+f(x) =
+\begin{cases} 
+Ax-B & \text{  si   } x \leq 1 \\
+ 3x  & \text{  si   } 1< x < 2 \\
+Bx^{2}-A & \text{  si   } x \geq 2 \\
+\end{cases}
+\end{equation*}
+  
+\fbox{ \parbox{0.98\linewidth}{
+\noindent
+\begin{myteo}{\textbf{Teorema de la Conservación del Signo}}\\
+Sea $f(x)$ continua en $x = c$
+\begin{enumerate}
+\item Si $f(c) > 0$, existe un número real $\alpha > 0$  tal que para todo x perteneciente al intervalo $(c-\alpha, c+\alpha)$  se cumple que $f(x)>0$
+\item Si $f(c) < 0$, existe un número real $\alpha > 0$  tal que para todo x perteneciente al intervalo $(c-\alpha, c+\alpha)$  se cumple que $f(x)<0$
+\end{enumerate}
+\end{myteo}
+}}
+\vspace{0.3 cm}
+
+%32 (ex 31)
+\item Proponer un ejemplo de una función continua tal que $f(2) > 0$ y  $f(3) < 0$. 
+\begin{enumerate}
+\item  Mostrar gráficamente la existencia de $\alpha > 0$  tal que para todo x perteneciente al intervalo $(2-\alpha, 2+\alpha)$  se cumple que $f(x)>0$
+\item  Mostrar gráficamente la existencia de $\alpha > 0$  tal que para todo x perteneciente al intervalo $(3-\alpha, 3+\alpha)$  se cumple que $f(x)<0$
+\end{enumerate}
+
+
+\fbox{ \parbox{0.98\linewidth}{
+\noindent
+\begin{myteo}
+Sean $f(x)$ y $g(x)$ continuas en $x = c$ Si $f(c) < g(c)$,  existe $\alpha > 0$  tal que para todo x perteneciente al intervalo $c-\alpha, c+\alpha)$  se cumple que $f(x)<g(x)$
+\end{myteo}
+}}
+\vspace{0.3 cm}
+
+%33 (ex 32)
+\item  Dibujar dos funciones continuas $f(x)$ y$ g(x)$ tales que $f(2) < g(2)$  y  $f(6) > g(6)$.
+\begin{enumerate}
+\item  ¿Es posible asegurar que en algún momento f(x) = g(x)?, ¿dónde? 
+\item En el ejemplo propuesto identificar un punto $x = a$ para el cual sea $f(a) < g(a)$ 
+\item  Mostrar en el gráfico la existencia de $\alpha > 0$  tal que para todo x perteneciente al intervalo $a-\alpha, a+\alpha)$  se cumple que $f(x)<g(x)$
+\end{enumerate}
+
+
+%34 (ex 33)
+\item Sea $f(x)$ definida por
+\begin{equation*}
+f(x) =
+\begin{cases} 
+\frac{x^{2}-4}{x-2} & \text{  si   } x \neq 2 \\
+  \text{.......} & \text{  si   } x =2 \\
+\end{cases}
+\end{equation*}
+\noindent
+¿Cómo debe elegirse $ f(2)$ para que $f(x)$  resulte una función continua?
+
+%35 (ex 34)
+\item  Para cada una de las siguientes funciones se pide: 
+\begin{itemize}
+\item Identificar todos los puntos de discontinuidad 
+\item Calcular los límites laterales en cada punto de discontinuidad
+\item Según el resultado obtenido, clasificar cada punto de discontinuidad
+\item Graficar con la ayuda de un graficador
+\end{itemize}
+
+\begin{multicols}{2}
+\begin{enumerate}
+\item  $f(x) = \frac{-2}{x^{2}}$
+\item $f(x) = \frac{4}{x^{2}-4}$
+\item  $f(x) = \frac{x}{(x-2)(x+3)}$
+\item  $f(x) = \frac{1+x}{|1-x|}$
+\item  $f(x) = \frac{x^{2}+1}{x^{2}-1}$
+\item  $f(x) = \frac{x}{|x|}$
+\item $f(x) = x.[x]$
+\item $f(x) = x-[x]$
+\item $f(x) = e^{\frac{-1}{x^{2}-1}}$
+\item $f(x) = \frac{3}{ \ln(x+2)}$
+\end{enumerate}
+\end{multicols}
+
+
+%36 (ex 34j)
+\item  Para la función:
+\begin{equation*}
+f(x) =
+\begin{cases} 
+x^{2} & \text{  si   } x \leq 3 \\
+2x+1 & \text{  si   } x >3 \\
+\end{cases}
+\end{equation*}
+\begin{enumerate}
+\item Identificar todos los puntos de discontinuidad 
+\item Calcular los límites laterales en cada punto de discontinuidad
+\item Según el resultado obtenido, clasificar cada punto de discontinuidad
+\item Graficar con la ayuda de un graficador
+\end{enumerate}
+
+%37 (ex 35d)
+\item Encontrar y clasificar todos los puntos de discontinuidad de:
+\begin{equation*}
+f(x) =
+\begin{cases} 
+\frac{1}{16}x & \text{  si   } x \leq 2 \\
+\\
+\frac{x^{2}-5x+6}{8-2x^{2}}& \text{  si   } x >2 \\
+\end{cases}
+\end{equation*}
+\begin{enumerate}
+\item Calcular los límites laterales en cada punto de discontinuidad
+\item Según el resultado obtenido, clasificar cada punto de discontinuidad
+\item Graficar con la ayuda de un graficador
+\end{enumerate}
+%%
+\end{enumerate}
+\end{document}

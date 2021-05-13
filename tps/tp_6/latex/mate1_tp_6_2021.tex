@@ -1,0 +1,596 @@
+%no borrar PREAMBULO
+\documentclass[12pt]{article}
+
+\usepackage[top=3 cm, bottom=2.5  cm, left=2.5 cm, right=2.5 cm]{geometry}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\usepackage[hidelinks]{hyperref} %esta opción saca las cajas de colores de los hiperlinks
+
+\fancyfoot[C]{\thepage }  %numera las páginas
+
+\usepackage[utf8]{inputenc}
+
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{xcolor}
+\usepackage{fancyvrb}
+\newcommand\verbbf[1]{\textcolor[rgb]{0,0,1}}%comando para colorear el texto en verbatim
+
+%\linespread{1} %por si queremos achicar el espacio entre lineas
+
+\usepackage{tabularx,booktabs}
+\usepackage{graphicx}
+\usepackage{svg} % Para poder incluir gráficos vectoriales en formato .svg
+\usepackage{float} %para que las figuras puedan ponerse en cualquier lado
+\usepackage{longtable} % Para tablas que abarcan más de una página
+
+\usepackage{subcaption}
+\usepackage{layout}
+\usepackage{multicol}  %para escribir en columnnas 
+\usepackage{textcomp}
+\usepackage{natbib}
+\usepackage{tikz}
+\usepackage{multirow} %para cambiar el alto de una fila en una tabla
+\tikzset{
+  connect/.style = { dashed, gray }
+}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.8}
+\usepackage[english ,spanish]{babel}
+\usepackage{latexsym}
+\usepackage{verbatim}
+
+%\usepackage{alltt}
+\usepackage{indentfirst}
+
+\usepackage{fancybox, calc} 
+
+\usepackage[flushmargin]{footmisc} %para alinear las notas de página
+
+\usepackage{url}
+\usepackage{advdate}
+\usepackage{wrapfig}
+\usepackage{amsthm}
+\usepackage[inline]{enumitem} %para hacer listas en una linea, los mismos comandos con *
+\newtheorem*{myteo}{Teorema} % la * es para no numerarlos
+\newtheorem*{myexample}{Ejemplo}
+\newtheorem*{myprop}{Proposición}
+\newtheorem*{mylem}{Lema}
+\theoremstyle{definition}
+\newtheorem*{mydef}{Definición}
+\newtheorem{ejer}{Ejercicio}
+\newtheorem*{mydefs}{Definiciones}
+%\theoremstyle{remark}
+\newtheorem*{myobs}{Observación}
+\newtheorem*{remark}{Importante}
+\newtheorem*{myteo2}{Teorema}
+
+\renewcommand{\baselinestretch}{1}  %interlineado
+
+\addto\captionsspanish{%
+  \renewcommand{\figurename}{Figura}%
+}
+
+\newcommand\myText[1]{\text{\scriptsize\tabular[t]{@{}l@{}}#1\endtabular}}
+\addto\captionsspanish{%
+  \renewcommand{\tablename}{Tabla}%
+}
+
+\def \ds {\displaystyle} %define un comando abreviado  
+\def\com{“R”}
+
+\usepackage{hyperref}%para referencias de internet con link!
+\newcommand*{\fullref}[1]{\hyperref[{#1}]{ \nameref*{#1}}}
+%comando \fullref para que ademas del número de capitulo, sección etc. escriba el título del capitulo, sección o lo que sea a lo que estamos haciendo referencia
+
+\newcommand\comentario[1]{\textcolor{red}{#1}}%comentarios en el pdf
+
+\interfootnotelinepenalty=10000 %previene que se pasen a otra página las notas de pie
+\raggedbottom 
+\addtolength{\topskip}{0pt plus 10pt}
+\addtolength{\footnotesep}{0.1mm}
+
+\VerbatimFootnotes%para poder usar Verbatim en las notas de pie
+
+\begin{document}
+
+\fancyhf{}
+\pagestyle{fancy}
+\lhead{Departamento de Matem\'{a}tica\\Universidad Nacional del Comahue}
+\rhead{Matem\'{a}tica 1\\ Licenciatura en Ciencias Biol\'{o}gicas}
+
+%HASTA ACA 
+
+\begin{centering}
+\Large{\textbf{Trabajo Práctico N° 6}}\\
+\large{\textbf{Límite de funciones}}\\
+\end{centering}
+\vspace{1cm}
+
+% Definición de límite finito de una función en un punto
+\fbox{ \parbox{0.98\linewidth}{
+\noindent
+\begin{mydef}  \textbf{Límite finito de una función en un punto.}\\
+Sea $f(x)$ definida en un entorno reducido de $x = c$, es decir, al menos en la unión de intervalos $(c - \delta,c) \cup (c,c + \delta)$ (es decir, $f(c)$ puede o no existir).\\
+
+Diremos que la función $f(x)$ tiene límite finito $L$ en el punto $x = c$ (o cuando $x$ tiende a
+$c$) si para cualquier distancia elegida $\epsilon > 0$, es posible encontrar una distancia $\delta > 0$ tal que si $x$ se encuentra a una distancia de $c$ menor que $\delta$ y mayor que 0, entonces su imagen $f(x)$ se encontrará a una distancia de $L$ menor que $\epsilon$.\\
+
+En símbolos:
+\begin{align*}
+\lim_{x \to c} f(x) = L \iff \forall \epsilon > 0,\; \exists \delta\left(\epsilon\right) > 0 \text{ tal que si } 0 < |x - c| < \delta \implies |f(x) - L| < \epsilon
+\end{align*}
+\end{mydef}
+}}
+
+% Ejercicios y problemas
+\begin{enumerate}
+
+%1
+\item Interpretar en términos de distancias las expresiones: $0 < |x - c| < \delta$ y $|f(x) - L| < \epsilon$.
+
+%2
+\item ¿ Qué significado tiene la expresión $0 < |x - c|$? ¿Por qué razón es necesario incluir esta condición en la definición de límite?
+
+%3
+\item Interpretar gráficamente la definición de límite finito de una función en un punto, y explicar su significado.
+ 
+%4
+\item Analizar por qué en la definición de límite se dice que delta depende de épsilon ($\delta\left(\epsilon\right)$).
+
+% Definición de límites laterales finitos
+\fbox{ \parbox{0.98\linewidth}{
+\noindent
+\begin{mydef}  \textbf{Límites laterales finitos.}\\
+Sea $f(x)$ definida en el intervalo $(c, c + \delta)$.\\
+
+\textit{Límite lateral finito por la derecha de $f(x)$ en $x = c$:}\\
+
+Diremos que $f(x)$ posee límite finito por la derecha de $x = c$, si para cualquier distancia elegida $\epsilon > 0$, es posible encontrar una distancia $\delta > 0$ tal que si $x$ verifica que $c < x < c + \delta$, entonces su imagen $f(x)$ se encontrará a una distancia de $L$ menor que $\epsilon$.\\
+
+En símbolos:
+\begin{align*}
+  \lim_{x \to c^+} f(x) = L \iff \forall \epsilon > 0,\; \exists \delta\left(\epsilon\right) > 0 \text{ tal que si } c < x < c + \delta \implies |f(x) - L| < \epsilon
+\end{align*}
+\end{mydef}
+}}
+
+%5
+\item Interpretar gráficamente la definición de límite lateral por derecha de una función en un punto, y explicar su significado. ¿Cómo sería la definición de límite lateral finito por izquierda?
+
+% Teorema de límites laterales
+\fbox{ \parbox{0.98\linewidth}{
+\noindent
+\begin{myteo} Una función tiene límite finito en un punto si y sólo si sus límites laterales en ese punto son finitos e iguales.\\
+
+En símbolos
+\begin{align*}
+  \lim_{x \to c} f(x) = L \iff \lim_{x \to c^+} f(x) = \lim_{x \to c^-} f(x) = L
+\end{align*}
+\end{myteo}
+}}
+
+% Definición de límites laterales infinitos
+\fbox{ \parbox{0.98\linewidth}{
+\noindent
+\begin{mydef}  \textbf{Límites laterales infinitos.}\\
+Sea $f(x)$ definida en el intervalo $(c, c + \delta$.\\
+
+\textit{Límite lateral infinito positivo por la derecha de $f(x)$ en $x = c$:}\\
+
+Diremos que $f(x)$ posee límite infinito positivo por la derecha de $x = c$, si para cualquier cota $K > 0$, es posible encontrar una distancia $\delta > 0$ tal que todos los valores de $x$ que se encuentren en el intervalo $(c, c + \delta)$ tendrán imágenes superiores a $K$.\\
+
+En símbolos:
+\begin{align*}
+  \lim_{x \to c^+} f(x) = +\infty \iff \forall K > 0,\; \exists \delta\left(K\right) > 0 \text{ tal que si } x \in (c,c + \delta) \implies f(x) > K
+\end{align*}
+
+\textit{Límite lateral infinito negativo por la derecha de $f(x)$ en $x = c$:}\\
+
+Diremos que $f(x)$ posee límite infinito negativo por la derecha de $x = c$, si para cualquier cota $K > 0$, es posible encontrar una distancia $\delta > 0$ tal que todos los valores de $x$ que se encuentren en el intervalo $(c, c + \delta)$ tendrán imágenes inferiores a $-K$.\\
+
+En símbolos:
+\begin{align*}
+\lim_{x \to c^+} f(x) = -\infty \iff \forall K > 0,\; \exists \delta\left(K\right) > 0 \text{ tal que si } x \in (c,c + \delta) \implies f(x) < -K
+\end{align*}
+\end{mydef}
+}}
+
+\item ¿Es lo mismo evaluar una función en un punto que calcular un límite? Explicar la diferencia.
+
+\item Interpretar gráficamente la definición de límite lateral infinito positivo y negativo por derecha de una función en un punto, y explicar su significado. ¿Cómo sería la definición de límite lateral infinito positivo y negativo por izquierda?
+
+% Definición de límites laterales
+\fbox{ \parbox{0.98\linewidth}{
+\noindent
+\begin{mydef}  \textbf{Límite infinito de una función en un punto.}\\
+	
+Diremos que una función $f(x)$ tiene límite infinito en $x = c$ si sus límites laterales son ambos infinitos.\\
+
+Además:
+\begin{align*}
+  \lim_{x \to c^+} f(x) &= +\infty \text{ y } \lim_{x \to c^-} f(x) = +\infty \iff \lim_{x \to c} f(x) = +\infty\\
+  \lim_{x \to c^+} f(x) &= -\infty \text{ y } \lim_{x \to c^-} f(x) = -\infty \iff \lim_{x \to c} f(x) = -\infty
+\end{align*}
+
+Y si los límites laterales son ambos infinitos pero de distinto signo, diremos que $f(x)$ tiene límite infinito en $x = c$, sin precisar un signo.\\
+
+Si $f(x)$ tiene límite infinito en $x = c$, se dice que en ese punto tiene una \textit{asíntota vertical}.
+\end{mydef}
+}}
+
+\item Mostrar ejemplos gráficos de funciones con límite infinito en $x = c$, donde se vean las posibles combinaciones de los signos de los límites laterales.
+
+\item Dados los siguientes gráficos, hallar:
+
+\begin{multicols}{4}
+  \begin{enumerate}
+	\item[i)] $\lim\limits_{x \to c^+} f(x)$\\
+	\item[ii)] $\lim\limits_{x \to c^-} f(x)$\\
+	\item[iii)]$\lim\limits_{x \to c} f(x)$\\
+	\item[iv)] $f(c)$\\ \vspace{0.3 cm}
+  \end{enumerate}
+\end{multicols}
+
+\begin{figure}[H]
+	\centering
+	\includesvg[width = 0.7\textwidth]{fig_1_ab}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includesvg[width = 0.7\textwidth]{fig_1_cd}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includesvg[width = 0.7\textwidth]{fig_1_ef}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includesvg[width = 0.7\textwidth]{fig_1_gh}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includesvg[width = 0.7\textwidth]{fig_1_ij}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includesvg[width = 0.7\textwidth]{fig_1_kl}
+\end{figure}
+
+\item Completar la siguiente tabla con ejemplos gráficos que ilustren cada caso
+
+{\centering\footnotesize
+\begin{longtable}{|p{0.6\textwidth}|p{0.4\textwidth}|}
+\hline & \\
+\textbf{Límite finito} en $x = c$: & \\
+Los límites laterales son finitos e iguales \smallskip & \\
+$\lim\limits_{x \to c^+} f(x) = \lim\limits_{x \to c^-} f(x) = L \iff \lim\limits_{x \to c} f(x) = L$ \vspace{2mm} & \\
+\hline & \\
+\textbf{Límite infinito positivo} en $x = c$: & \\
+Los límites laterales son ambos infinitos positivos \smallskip & \\
+$\lim\limits_{x \to c^+} f(x) = \lim\limits_{x \to c^-} f(x) = +\infty \iff \lim\limits_{x \to c} f(x) = +\infty$ \vspace{2mm} & \\
+\hline & \\
+\textbf{Límite infinito negativo} en $x = c$: & \\
+Los límites laterales son ambos infinitos negativos \smallskip & \\
+$\lim\limits_{x \to c^+} f(x) = \lim\limits_{x \to c^-} f(x) = -\infty \iff \lim\limits_{x \to c} f(x) = -\infty$ \vspace{2mm} & \\
+\hline & \\
+\textbf{Límite infinito} en $x = c$: & \\
+Los límites laterales son ambos infinitos pero de distinto signo \smallskip & \\
+$\lim\limits_{x \to c^+} f(x) = +\infty \text{ y } \lim\limits_{x \to c^-} f(x) = -\infty \implies \lim\limits_{x \to c} f(x) = \infty$ \vspace{2mm} & \\
+\hline & \\
+\textbf{Límite infinito} en $x = c$: & \\
+Los límites laterales son ambos infinitos pero de distinto signo \smallskip & \\
+$\lim\limits_{x \to c^+} f(x) = -\infty \text{ y } \lim\limits_{x \to c^-} f(x) = +\infty \implies \lim\limits_{x \to c} f(x) = \infty$ \vspace{2mm} & \\
+\hline & \\
+\textbf{No existe límite} en $x = c$: & \\
+Los límites laterales son ambos finitos pero distintos \smallskip & \\
+$\lim\limits_{x \to c^+} f(x) = L \text{ y } \lim\limits_{x \to c^-} f(x) = M \text{ y } L \neq M \implies \nexists \lim\limits_{x \to c} f(x)$ \vspace{2mm} & \\
+\hline & \\
+\textbf{No existe límite} en $x = c$: & \\
+Los límites laterales son uno finito y el otro infinito \smallskip & \\
+$\lim\limits_{x \to c^+} f(x) = L \text{ y } \lim\limits_{x \to c^-} f(x) = +\infty \implies \nexists \lim\limits_{x \to c} f(x)$ \smallskip & \\
+$\lim\limits_{x \to c^+} f(x) = +\infty \text{ y } \lim\limits_{x \to c^-} f(x) = L \implies \nexists \lim\limits_{x \to c} f(x)$ \vspace{2mm} & \\
+\hline &\\
+\textbf{No existe límite} en $x = c$: & \\
+Los límites laterales son uno finito y el otro infinito \smallskip & \\
+$\lim\limits_{x \to c^+} f(x) = L \text{ y } \lim\limits_{x \to c^-} f(x) = -\infty \implies \nexists \lim\limits_{x \to c} f(x)$ \smallskip & \\
+$\lim\limits_{x \to c^+} f(x) = -\infty \text{ y } \lim\limits_{x \to c^-} f(x) = L \implies \nexists \lim\limits_{x \to c} f(x)$ \vspace{2mm} & \\
+\hline
+\end{longtable}
+}
+
+\item ¿Tiene sentido calcular $\lim\limits_{x \to 2} \ln(x - 10)$? ¿Por qué? Graficar.
+
+\item Suponga que de una función $f(x)$ se sabe que si $0 < |x - 3| < 1$ entonces $|f(x) - 5| < 0.1$.
+
+\begin{enumerate}
+\item Hacer una interpretación gráfica de la condición enunciada.
+\item Para cada una de las afirmaciones propuestas a continuación, analizar gráficamente y, comparando con la interpretación gráfica del inciso anterior, decir si son verdaderas o falsas. Justificar.
+\begin{enumerate}[label = {\footnotesize\roman*})]
+	\item Si $|x - 3| < 1$ entonces $|f(x) - 5| < 0.1$
+	\item Si $|x - 2.5| < 0.3$ entonces $|f(x) - 5| < 0.1$
+	\item $\lim\limits_{x \to 3} f(x) = 5$
+	\item Si $0 < x - 3 < 2$ entonces $|f(x) - 5| < 0.1$
+	\item Si $0 < x - 3 < 0.5$ entonces $|f(x) - 5| < 0.1$
+	\item Si $0 < x - 3 < 0.25$ entonces $|f(x) - 5| < 0.1 . (0.25)$
+	\item Si $0 < x - 3 < 1$ entonces $|f(x) - 5| < 0.2$
+	\item Si $0 < x - 3 < 1$ entonces $|f(x) - 4.95| < 0.05$
+	\item Si $\lim\limits_{x \to 3} f(x) = 5$, entonces $4.9 < L < 5.1$
+\end{enumerate}	
+\end{enumerate}
+
+\item ¿Para cuál o cuáles de los siguientes valores de $\epsilon$ ``sirve'' el valor de $\delta$ especificado en el gráfico?
+
+\begin{figure}[H]
+	\centering
+	\includesvg[width = 0.7\textwidth]{fig_2}
+\end{figure}
+
+\item ¿Para cuál o cuáles de los siguientes valores dados de $\delta$ ``funciona'' el valor de $\epsilon$ marcado?
+
+\begin{figure}[H]
+	\centering
+	\includesvg[width = 0.7\textwidth]{fig_3}
+\end{figure}
+
+% Propiedades de los límites
+\fbox{ \parbox{0.98\linewidth}{
+\noindent
+\begin{myteo2} \textbf{(Propiedades de los límites)}\\
+Sean $f(x)$ y $g(x)$ dos funciones con límite finito en $x = c$. Entonces:
+\begin{enumerate}
+\item El límite de la suma es la suma de los límites.
+\item El límite del producto es el producto de los límites.
+\item Si, en particular, una de las funciones es constante, el límite del producto de una función por una constante es el producto de la constante por el límite de la función.
+\item El límite del cociente es el cociente de los límites, siempre que el límite de la función del denominador no sea 0.
+\end{enumerate}
+
+En símbolos, sean $f(x)$ y $g(x)$ dos funciones tales que:
+
+\[\lim\limits_{x \to c} f(x) = L \text{ y } \lim\limits_{x \to c} g(x) = M,\]
+
+\noindent y sea $k \in \mathbb{R}$. Entonces:
+
+\begin{enumerate}
+\item $\lim\limits_{x \to c}\left[f(x) + g(x)\right] = \lim\limits_{x \to c}f(x) + \lim\limits_{x \to c}g(x) = L + M$
+\item $\lim\limits_{x \to c}\left[f(x) . g(x)\right] = \lim\limits_{x \to c}f(x) . \lim\limits_{x \to c}g(x) = L . M$
+\item $\lim\limits_{x \to c}\left[k . f(x)\right] = k . \lim\limits_{x \to c}f(x) = k . L$
+\item $\lim\limits_{x \to c}\left[\frac{f(x)}{g(x)}\right] = \frac{\lim\limits_{x \to c}f(x)}{\lim\limits_{x \to c}g(x)} = \frac{L}{M}$, siempre que $M \neq 0$.
+\end{enumerate}
+\end{myteo2}
+}}
+
+% Límite de una función polinómica
+\fbox{ \parbox{0.98\linewidth}{
+\noindent
+\begin{myteo2}
+Si $P(x)$ es una función polinómica de la forma $P(x) = a_0 + a_1 x + a_2 x^2 +...+ a_n x^n$, donde $a_0$, $a_1$ ,..., $a_n$ son número reales, entonces:
+
+\[\lim\limits_{x \to c} P(x) = a_0 + a_1 c + a_2 c^2 +...+ a_n c^n = P(c)\]
+\end{myteo2}
+}}
+
+% Límite del cociente por un infinitésimo
+\fbox{ \parbox{0.98\linewidth}{
+\noindent
+\begin{myteo2}
+Si $\lim\limits_{x \to c} f(x) = L \neq 0$ y $\lim\limits_{x \to c} g(x) = 0$, entonces $\lim\limits_{x \to c} \frac{f(x)}{g(x)} = \infty$.\\
+
+\textit{Nota:} para saber el ``signo del infinito'' hay que determinar los límites laterales cuando $x \to c^+$ y $x \to c^-$, como se explicó anteriormente en la definición de límite infinito de una función en un punto.
+\end{myteo2}
+}}
+
+\item Calcular los siguientes límites e interpretar gráficamente:
+
+\begin{multicols}{4}
+\begin{enumerate}
+	\item $\lim\limits_{x \to 2} 5x$
+	\item $\lim\limits_{x \to 1} x^2 - 4x + 1$
+	\item $\lim\limits_{x \to 0} \frac{1}{x^2}$			\item $\lim\limits_{x \to 4} 3x + 2$	
+\end{enumerate}
+\end{multicols}
+
+\item Analizar ambos límites laterales de las siguientes funciones:
+
+\begin{multicols}{2}
+	\begin{enumerate}
+		\item $f(x) = tg(x)$, en $x = \frac{\pi}{2}$
+		\item $f(x) = \frac{1}{|x - 2|}$, en $x = 2$
+		\item $f(x) = \frac{x^2 - 25}{x - 5}$, en $x = 5$ y $x = -5$		
+		\item $f(x) = \frac{x - 5}{x^2 - 25}$, en $x = 5$ y $x = -5$	
+	\end{enumerate}
+\end{multicols}
+
+\item Considerando los siguientes límites: $\lim\limits_{x \to c} f(x) = 2$, $\lim\limits_{x \to c} g(x) = -1$ y $\lim\limits_{x \to c} h(x) = 0$, evaluar las siguientes expresiones (si es posible):
+
+\begin{multicols}{3}
+\begin{enumerate}
+	\item $\lim\limits_{x \to c} \left[f(x) - g(x)\right]$
+	\item $\lim\limits_{x \to c} \left(\left[f(x)\right]^2\right)$
+	\item $\lim\limits_{x \to c} \left[\frac{f(x)}{g(x)}\right]$
+    \item $\lim\limits_{x \to c} \left[\frac{h(x)}{f(x)}\right]$
+    \item $\lim\limits_{x \to c} \left[\frac{f(x)}{h(x)}\right]$
+    \item $\lim\limits_{x \to c} \left[\frac{1}{f(x) - g(x)}\right]$
+\end{enumerate}
+\end{multicols}
+
+% Teorema del sánguche
+\fbox{ \parbox{0.98\linewidth}{
+\noindent
+\begin{myteo2} \textbf{(Teorema del sándwich)}\\
+Sean las funciones $f(x)$, $g(x)$ y $h(x)$ tales que en $(c - \delta,c + \delta)$ verifican que ${f(x) \leq h(x) \leq g(x)}$, y además $\lim\limits_{x \to c} f(x) = \lim\limits_{x \to c} g(x) = L$. Entonces: $\lim\limits_{x \to c} h(x) = L$.
+\end{myteo2}
+}}
+
+\item Explicar el significado del teorema del sándwich y dar una interpretación gráfica del mismo.
+
+\item Aplicando el teorema del sándwich y apoyándose gráficamente, hallar:
+
+\begin{enumerate}
+	\item $\lim\limits_{x \to 0} f(x)$, sabiendo que $0 < |x| < 1 \implies 0 \leq f(x) \leq |x|$.
+	\item $\lim\limits_{x \to 0} f(x)$, sabiendo que $x \neq 0 \implies 2 - |x| \leq f(x) \leq 2 + |x|$.
+	\item $\lim\limits_{x \to 3} f(x)$, sabiendo que $x \neq 3 \implies 0 \leq f(x) \leq (x - 3)^2$.
+	\item $\lim\limits_{x \to 2} f(x)$, sabiendo que $0 < |x - 2| < 1 \implies -(x - 2)^2 \leq f(x) \leq 0$.
+\end{enumerate}
+
+\item En las siguientes funciones, determinar los valores de $x$ para los cuales la función no está definida (llamémoslos $x = a$). Luego calcular los límites laterales cuando $x \to a^+$ y $x \to a^-$. ¿Qué se puede decir del límite de la función cuando $x \to a$?
+
+\begin{multicols}{4}
+\begin{enumerate}
+	\item $f(x) = \frac{x - 3}{x^2 + x - 2}$
+	\item $f(x) = e^{\frac{1}{x}}$
+	\item $f(x) = \frac{x^2 + x - 2}{x^2 - 6x + 9}$
+	\item $f(x) = \frac{|x - 2|}{x - 2}$
+\end{enumerate}
+\end{multicols}
+
+% Definición de límite finito cuando la variable tiende a infinito
+\fbox{\parbox{0.98\linewidth}{
+\noindent
+\begin{mydef} \textbf{Límite finito de una función cuando la variable tiende a infinito.}\\
+
+La función $f(x)$ tiene límite finito $L$ cuando $x$ tiende a infinito positivo, si para todo $\epsilon > 0$, es posible encontrar un número real $x_0$ tal que, cuando $x > x_0$, la distancia entre $f(x)$ y $L$ es menor que $\epsilon$.\par
+En símbolos:
+
+\[\lim\limits_{x \to +\infty} f(x) = L \iff \forall \epsilon > 0, \exists x_0 \in \mathbb{R} / x > x_0 \implies |f(x) - L| < \epsilon.\]
+
+La definición cuando $x \to -\infty$ es similar.
+\end{mydef}
+}}
+
+\item Interpretar gráficamente la definición de límite finito de una función cuando la variable tiende a infinito positivo y negativo, y explicar su significado.
+
+% Definición de asíntota horizontal
+\fbox{\parbox{0.98\linewidth}{
+\noindent
+\begin{mydef} \textbf{Asíntota horizontal.}\\
+
+Si $f(x)$ tiene límite finito cuando $x$ tiende a infinito (positivo o negativo), se dice que tiene una \textit{asíntota horizontal}.
+\end{mydef}
+}}
+
+\item Dar ejemplos gráficos de funciones que posean asíntotas horizontales a derecha y/o a izquierda.
+
+% Definición de indeterminaciones
+\fbox{\parbox{0.98\linewidth}{
+\noindent
+\begin{mydef} \textbf{Formas indeterminadas.}\\
+
+Ya sea que se trate de un límite de una función cuando la variable tiende a un punto o cuando tiende a infinito, se denomina \textit{forma indeterminada} o \textit{límite indeterminado} a un límite del cual es imposible determinar en forma inmediata si es finito, infinito o no existe.\\
+
+Algunas formas indeterminadas son: $\frac{0}{0}$, $\frac{\infty}{\infty}$, $0 . \infty$, $0^0$, $1^\infty$, $\infty^0$, $\infty - \infty$,\\
+
+entendiéndose	que se trata de expresiones donde participan dos funciones \textit{que tienden a} 0, 1 o $\infty$, según corresponda, y no propiamente de una operación entre éstos.
+\end{mydef}
+}}
+
+\textbf{Algunas técnicas de cálculo de límites}
+
+% Técnica de cancelación
+\fbox{\parbox{0.98\linewidth}{
+\noindent
+\textit{Técnica de cancelación}\\
+
+Sean $f(x)$ y $g(x)$ dos funciones polinómicas tales que $\lim\limits_{x \to c} f(x) = \lim\limits_{x \to c} g(x) = 0$. Por lo tanto, el límite $\lim\limits_{x \to c}\left[\frac{f(x)}{g(x)}\right]$ es una forma indeterminada $\frac{0}{0}$.\\
+
+Sabemos que si $\lim\limits_{x \to c} f(x) = 0$, entonces $f(c) = 0$ y por lo tanto $f(x)$ es divisible por $(x - c)$, o sea:
+
+\[f(x) = r(x) . (x - c).\]
+
+Por el mismo argumento: 
+
+\[g(x) = s(x) . (x - c).\]
+
+Entonces: 
+
+\[\lim\limits_{x \to c} \left[\frac{f(x)}{g(x)}\right] = \lim\limits_{x \to c} \left[\frac{r(x) (x - c)}{s(x) (x - c)}\right] = \lim\limits_{x \to c} \left[\frac{r(x)}{s(x)}\right],\]
+cancelando el factor $(x - c)$, ya que cuando $x \to c$, $x \neq c$.\\
+
+Si el límite vuelve a ser indeterminado, significa que el factor $(x - c)$ está presente nuevamente tanto en el numerador como en el denominador, y se repite el procedimiento. Si $(x - c)$ no es factor simultáneamente en el numerador y en el denominador, el límite ya no es indeterminado y se puede calcular por sustitución directa o aplicando las propiedades vistas.
+}}
+
+\bigskip
+
+% Técnica de división por la mayor potencia
+\fbox{\parbox{0.98\linewidth}{
+\noindent
+\textit{Técnica de división por la mayor potencia}\\
+
+Sean $f(x)$ y $g(x)$ funciones polinómicas tales que $\lim\limits_{x \to \infty} f(x) = \infty$ y $\lim\limits_{x \to \infty} g(x) = \infty$ (infinitos de cualquier signo). Por lo tanto, el límite $\lim\limits_{x \to c}\left[\frac{f(x)}{g(x)}\right]$ es una forma indeterminada $\frac{\infty}{\infty}$.\\
+
+Haciendo uso del hecho de que
+\[\lim\limits_{x \to \infty} \frac{1}{x^n} = 0\]
+para toda potencia positiva de $x$, la técnica consiste en dividir todos los términos del numerador y del denominador por la potencia $x^n$, donde $n$ es el mayor valor entre el grado de $f(x)$ y el de $g(x)$.
+De ese modo, todos los términos presentes en el cociente tendrán la forma $\frac{k}{x^m}$ (donde $k$ es un número real coeficiente de la función polinómica), los cuales tienden a cero cuando $x \to \infty$, a excepción de, a lo sumo, un término en el numerador y uno en el denominador que son independientes de x.
+}}
+
+\bigskip
+
+% Técnica de reescribir el producto como cociente
+\fbox{\parbox{0.98\linewidth}{
+\noindent
+\textit{Técnica de reescribir el producto como cociente}\\
+
+Sean $f(x)$ y $g(x)$ funciones tales que $f(x).g(x) \to 0.\infty$ cuando $x \to c$ o $x \to \infty$. Por un teorema enunciado más arriba, sabemos que:
+
+\[f(x) \to 0 \implies \frac{1}{f(x)} \to \infty \text{ y } g(x) \to \infty \implies \frac{1}{g(x)} \to 0.\]
+
+Por lo tanto, como el producto $f(x) . g(x)$ puede escribirse como
+
+\[f(x) . g(x) = \frac{f(x)}{\frac{1}{g(x)}} = \frac{g(x)}{\frac{1}{f(x)}},\]
+
+entonces puede transformarse en una indeterminación de tipo $\frac{0}{0}$ (primer caso) o $\frac{\infty}{\infty}$ (segundo caso), las cuales pueden resolverse empleando las otras técnicas descritas.
+}}
+
+\bigskip
+
+% Técnica de reescribir el producto como cociente
+\fbox{\parbox{0.98\linewidth}{
+\noindent
+\textit{Técnica de racionalización (multiplicación por el conjugado)}\\
+
+Esta técnica se aplica en ocasiones cuando se tiene una indeterminación del tipo $\infty - \infty$, para intentar transformar la resta en un cociente llevándolo a una forma conocida de tipo $\frac{0}{0}$ o $\frac{\infty}{\infty}$, o a un límite de cálculo inmediato.\\
+
+Teniendo $\lim\limits_{x \to c} \left[f(x) - g(x)\right] \to \infty - \infty$ y sabiendo que:
+
+\[\left[f(x) - g(x)\right] . \left[f(x) + g(x)\right] = \left[f(x)\right]^2 - \left[g(x)\right]^2,\]
+
+podemos reescribir el límite como:
+
+\[\lim\limits_{x \to c} \left[f(x) - g(x)\right] = \lim\limits_{x \to c} \left(\frac{\left[f(x) - g(x)\right] . \left[f(x) + g(x)\right]}{f(x) + g(x)}\right) = \lim\limits_{x \to c} \left(\frac{\left[f(x)\right]^2 - \left[g(x)\right]^2}{f(x) + g(x)}\right).\]
+
+Esta técnica es válida tanto cuando $x \to c$ como cuando $x \to \infty$.
+}}
+
+\item Calcular los siguientes límites indeterminados aplicando las técnicas anteriores:
+
+\begin{multicols}{3}
+\begin{enumerate}
+\item $\lim\limits_{x \to 1} \frac{x^2 + x - 2}{x^2 - 2x + 1}$
+\item $\lim\limits_{x \to 2} \frac{\sqrt{x} - \sqrt{2}}{x - 2}$
+\item $\lim\limits_{x \to 0} \frac{x^2 + 2x}{x}$
+\item $\lim\limits_{x \to 0} \frac{\sqrt{4 + x} - 2}{x}$
+\item $\lim\limits_{x \to 0} \frac{\cos^2(x) + 3\cos(x) - 4}{\cos^2(x) - 1}$
+\item $\lim\limits_{x \to \frac{3}{2}} \frac{4x^2 - 9}{2x - 3}$
+\item $\lim\limits_{x \to \sqrt{3}} \frac{x - \sqrt{3}}{x^2 - 3}$
+\item $\lim\limits_{x \to \infty} \frac{x^3 + 1}{x^3}$
+\item $\lim\limits_{x \to \infty} \frac{3x^2 + 4x - 2}{x^2}$
+\item $\lim\limits_{x \to 0} \frac{\sin(2x)}{\sin(5x)}$
+\item $\lim\limits_{x \to 0} \frac{\tan(3x)}{5x}$
+\item $\lim\limits_{x \to \infty} \frac{2x + 1}{x^2 - 3x + 5}$
+\item $\lim\limits_{x \to \infty} \frac{x^3 - 2x + 3}{3x^2 - 5x + 1}$
+\end{enumerate}
+\end{multicols}
+
+\item En ausencia de viento, la concentración de metano emitida por un montículo de termitas es:
+
+\[f(d) = \frac{0.4 d + 0.7}{d + 1},\]
+
+donde $d$ es la distancia al montículo. La concentración de metano existe en el ambiente independientemente de la presencia de los termiteros. Por eso, para conocerla se debería poder averiguar cuál es dicha concentración en un lugar muy apartado de las termitas. Proponer y calcular cómo se puede conocer ese dato a partir de la función anterior.
+\end{enumerate}
+\end{document}
